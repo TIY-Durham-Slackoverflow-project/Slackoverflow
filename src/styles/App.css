@@ -1,6 +1,9 @@
 body{
   margin: 0;
+  background-color: #F2F2F5;
 }
+
+/* header styles */
 
 .header-wrapper{
   display: flex;
@@ -8,9 +11,9 @@ body{
   height: 60px;
   padding: 0 25px;
   align-items: center;
-  border-bottom: 1px solid black;
   background-color: #4D384B;
   color: white;
+  border-top: solid 5px #4C9689;
 }
 
 .header-wrapper h3{
@@ -34,10 +37,12 @@ body{
 .login-btn:hover{
   border-bottom: solid 1px white;
 }
+
 .login-btn{
   border: solid 1px transparent;
   padding: 6px 10px;
 }
+
 .register-btn{
   border: solid 1px white;
   padding: 6px 10px;
@@ -47,4 +52,20 @@ body{
 .register-btn:hover{
   color: white;
   background-color: #DF1463;
+}
+
+/* jumbotron styles */
+
+.jumbotron-wrapper{
+  height: 50vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('stock.png');
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+
 }
