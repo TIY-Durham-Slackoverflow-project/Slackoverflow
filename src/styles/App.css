@@ -47,7 +47,7 @@ body{
   color:#4C9689;
 }
 
-img.app-logo {
+.header-left img.app-logo {
   margin: 5px 15px 5px 0;
   width: auto;
   height: 65px;
@@ -67,6 +67,50 @@ img.app-logo {
 .register-btn:hover{
   color: white;
   background-color: #DF1463;
+}
+
+/*Login Form styles*/
+
+.form-wrapper{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.login-form{
+  margin-top: 80px;
+  background-color: #ffffff;
+  width: 300px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  text-align: center;
+  z-index: 5;
+}
+
+.form-group{
+  margin: 10px;
+  font-family: 'Open Sans', sans-serif;
+  outline-style: none;
+}
+
+.form-group button{
+  background-color: inherit;
+  text-decoration: none;
+  border: solid 1px #4D384B;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color:  #4D384B;
+
+}
+
+.form-group button:hover{
+  background-color: #DF1463;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 /* jumbotron styles */
@@ -206,6 +250,7 @@ th, td{
   border-bottom: 1px solid black;
 }
 
+/*footer styles*/
 .footer-wrapper{
   display: flex;
   justify-content: center;
@@ -223,7 +268,15 @@ th, td{
   font-size: 20px;
 }
 
+
+.footer-wrapper img.app-logo {
+  margin: 5px 15px 5px 0;
+  width: auto;
+  height: 50px;
+}
+
 /* single question page */
+
 .single-question-body{
   display: flex;
   justify-content: space-between;
