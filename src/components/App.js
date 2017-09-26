@@ -3,16 +3,21 @@ import '../styles/App.css';
 import QuestionCard from './QuestionCard.js';
 import Header from './Header.js';
 import Footer from './Footer.js';
+import Jumbotron from "./Jumbotron.js";
+import QuestionCards from './QuestionCards.js';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-          <Header/>
-        <div className="App-list">
+        <Header/>
+        <Jumbotron/>
+        <div className="question-cards-wrapper">
+          <QuestionCards/>
           <QuestionCard/>
           <QuestionCard/>
           <QuestionCard/>
+
         </div>
         <div className="App-Footer">
           <Footer/>
