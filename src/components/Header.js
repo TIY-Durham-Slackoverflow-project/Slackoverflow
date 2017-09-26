@@ -9,8 +9,12 @@ export default class Header extends Component {
     return (
       <div className = "header-wrapper">
         <div className = "header-left">
-          <div className = "slack-logo"></div>
-          <div className = "slack-title>"><h3>slackoverflow</h3></div>
+          <div className = "slack-logo">
+            <img></img>
+          </div>
+          <div className = "slack-title>">
+            <h3>Slack overflow</h3>
+          </div>
         </div>
         <div className = "header-right">
           <a href = "" className = "login-btn">Login</a>
