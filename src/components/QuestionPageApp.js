@@ -23,7 +23,9 @@ export default class QuestionPageApp extends Component {
   render() {
     return (
       <div className="single-question-container">
+
         <SingleQuestion/>
+
       </div>
     );
   }

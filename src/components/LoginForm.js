@@ -1,36 +1,48 @@
 import React, {Component} from 'react';
 
-export default class LoginForm extends React.Component {
+export default class LoginForm extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      register: false
+      // register: false
     }
+  }
+
+  submitFormData(event) {
+    
   }
 
   render() {
     return (
-      <div>
-        <form>
-          <div className="Header">
-            <h4>Login</h4>
-          </div>
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Enter username"/>
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="text" class="form-control" id="password" placeholder="Password goes here"/>
-          </div>
-          <div className="login-button">
-            <button type="submit" class="btn btn-success">Login</button>
-          </div>
-          <div className="register-button">
-            <button type="submit" class="btn btn-primary">Register</button>
-          </div>
-        </form>
+      <div className="form-wrapper">
+        <div className="login-form">
+          <form>
+            <div className="Header">
+              {this.props.display==="register" ?
+                <h3>Register</h3> :
+                <h3>Login</h3>
+              }
+            </div>
+            <div className="form-group">
+              {/* <label htmlFor="username">Username</label> */}
+              <input type="text" className="form-control" id="username" placeholder="Enter username"/>
+            </div>
+            <div className="form-group">
+              {/* <label htmlFor="password">Password</label> */}
+              <input type="text" className="form-control" id="password" placeholder="Password goes here"/>
+            </div>
+
+            {this.props.display==="register" ?
+              <div className="form-group">
+                <button type="submit" className="btn btn-primary">Register</button>
+              </div> :
+              <div className="form-group">
+                <button type="submit" className="btn btn-success">Login</button>
+              </div>
+            }
+          </form>
+        </div>
       </div>
     );
   }
