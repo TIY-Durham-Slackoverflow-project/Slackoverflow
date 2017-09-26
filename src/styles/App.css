@@ -49,12 +49,6 @@ body{
   height: 65px;
 }
 
-.footer-wrapper img.app-logo {
-  margin: 5px 15px 5px 0;
-  width: auto;
-  height: 50px;
-}
-
 .login-btn{
   border: solid 1px transparent;
   padding: 6px 10px;
@@ -69,6 +63,16 @@ body{
 .register-btn:hover{
   color: white;
   background-color: #DF1463;
+}
+
+/*Login Form styles*/
+
+.login-form{
+  background-color: #ffffff;
+  width: 300px;
+  height: 200px;
+  align-items:  center;
+  z-index: 5;
 }
 
 /* jumbotron styles */
@@ -209,6 +213,7 @@ th{
   border-bottom: 1px solid black;
 }
 
+/*footer styles*/
 .footer-wrapper{
   display: flex;
   justify-content: center;
@@ -224,4 +229,10 @@ th{
   margin: 0;
   font-family: 'Work Sans', sans-serif;
   font-size: 20px;
+}
+
+.footer-wrapper img.app-logo {
+  margin: 5px 15px 5px 0;
+  width: auto;
+  height: 50px;
 }

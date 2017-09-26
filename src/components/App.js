@@ -3,6 +3,7 @@ import '../styles/App.css';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import Jumbotron from "./Jumbotron.js";
+// import LoginForm from "./LoginForm.js";
 import QuestionCards from './QuestionCards.js';
 import QuestionPageApp from './QuestionPageApp.js';
 
@@ -25,6 +26,7 @@ class App extends Component {
       <div className="App">
 
         <Header sendDataUpToParent={this.handleIncomingData}/>
+        {/* <LoginForm/> */}
         <Jumbotron/>
         <div className="question-cards-wrapper">
         {this.state.questionID ? (<QuestionPageApp invariable={this.state.questionID} sendDataUpToParent={this.handleIncomingData}/>) : (<QuestionCards sendDataUp={this.handleIncomingData}/>)}

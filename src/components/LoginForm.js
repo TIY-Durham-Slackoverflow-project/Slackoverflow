@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export default class LoginForm extends React.Component {
+export default class LoginForm extends Component {
   constructor(props) {
     super(props);
 
@@ -11,24 +11,25 @@ export default class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login-form">
         <form>
           <div className="Header">
+
             <h4>Login</h4>
           </div>
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Enter username"/>
+          <div className="form-group">
+            <label htmlFor="username">Username</label>
+            <input type="text" className="form-control" id="username" placeholder="Enter username"/>
           </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="text" class="form-control" id="password" placeholder="Password goes here"/>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input type="text" className="form-control" id="password" placeholder="Password goes here"/>
           </div>
           <div className="login-button">
-            <button type="submit" class="btn btn-success">Login</button>
+            <button type="submit" className="btn btn-success">Login</button>
           </div>
           <div className="register-button">
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" className="btn btn-primary">Register</button>
           </div>
         </form>
       </div>
