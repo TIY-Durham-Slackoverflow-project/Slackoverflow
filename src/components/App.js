@@ -12,7 +12,7 @@ class App extends Component {
     super(props);
     this.handleIncomingData = this.handleIncomingData.bind(this);
     this.state ={
-      questionID: false
+      questionID: "false"
     };
   }
 
