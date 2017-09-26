@@ -3,6 +3,13 @@ import React, {Component} from 'react';
 export default class QuestionCard extends Component {
   constructor(props) {
     super(props);
+    this.sendQuestionUpToParent = this.sendQuestionUpToParent.bind(this);
+  }
+
+  sendQuestionUpToParent(event){
+    if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
+      this.props.sendDataUp(event.target.id);
+    }
   }
 
   render() {
@@ -13,7 +20,7 @@ export default class QuestionCard extends Component {
           <div className = "question-card-icon"><img src="" alt = "icon"/></div>
           <a href = "">name here</a>
         </div>
-        <div className = "question-card-content-middle">
+        <div onClick={this.sendQuestionUpToParent} className = "question-card-content-middle">
           <h3>This is a question header</h3>
           <p>This is more info about the question...</p>
           <ul className = "question-tags">
