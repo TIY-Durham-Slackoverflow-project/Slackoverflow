@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import logo from "../styles/Screen-Shot.png";
+// import LoginForm from "./LoginForm.js";
 
 export default class Header extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ export default class Header extends Component {
           <a href = "" className = "login-btn">Login</a>
           <a href = "" className = "register-btn">Register</a>
         </div>
+        {/* <LoginForm/> */}
       </div>
     );
   }
