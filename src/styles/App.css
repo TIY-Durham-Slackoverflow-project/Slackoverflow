@@ -31,11 +31,10 @@ body{
 .header-right{
   display: flex;
   justify-content: space-between;
-  width: 12vw;
 }
 
 .login-btn:hover{
-  border-bottom: solid 1px white;
+  color:#4C9689;
 }
 
 .login-btn{
@@ -66,7 +65,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('stockphoto.png');
+  background-image: url('slackgrid.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -87,7 +86,7 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: solid 5px #4C9689;
+  border-bottom: solid 5px #4D384B;
   margin-top: 15px;
 }
 
@@ -106,15 +105,17 @@ body{
 }
 
 .question-cards-wrapper-top a:hover{
-  background-color: #4D384B;
+  background-color: #DF1463;
   color: white;
+  border: none;
 }
 
-.question-card-wrapper{
+
+
+.question-card-content-top{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: solid 1px #4C9689;
   font-family: 'Open Sans', sans-serif;
   padding: 25px 10px;
 }
@@ -135,8 +136,16 @@ body{
 .question-card-content-left a:hover{
   font-weight: bold;
   color: #DF1463;
+}
 
-
+.question-tags li{
+  list-style-type: none;
+  display: inline;
+  padding: 8px;
+  margin: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #B5E2E8;
 }
 
 .question-card-content-middle p, .question-card-content-middle h3{
@@ -145,11 +154,40 @@ body{
 
 .question-card-content-middle h3{
   padding-bottom: 5px;
-  color: #DF1463;
+  color: #4C9689;
   font-family: 'Work Sans', sans-serif;
+  font-size: 25px;
 }
 
 .question-card-content-middle h3:hover{
   text-decoration: underline;
   cursor: pointer;
+}
+
+th, td{
+  padding:3px 10px;
+  text-align: center;
+}
+
+th{
+  text-decoration: underline;
+}
+
+.question-card-content-bottom{
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Open Sans', sans-serif;
+  padding: 5px 10px;
+}
+
+.question-card-content-bottom p{
+  margin: 0;
+  font-size: 15px;
+  color: #DF1463;
+
+}
+
+
+.question-card-wrapper{
+  border-bottom: 1px solid black;
 }
