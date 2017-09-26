@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import logo from "../styles/Screen-Shot.png";
 
 export default class Header extends Component {
   constructor(props) {
@@ -9,8 +10,12 @@ export default class Header extends Component {
     return (
       <div className = "header-wrapper">
         <div className = "header-left">
-          <div className = "slack-logo"></div>
-          <div className = "slack-title>"><h3>slackoverflow</h3></div>
+          <div className = "slack-logo">
+            <img src={logo} className="app-logo" alt="logo" />
+          </div>
+          <div className = "slack-title>">
+            <h3>Slack overflow</h3>
+          </div>
         </div>
         <div className = "header-right">
           <a href = "" className = "login-btn">Login</a>

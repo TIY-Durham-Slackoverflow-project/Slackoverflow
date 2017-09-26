@@ -23,10 +23,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
         <Header sendDataUpToParent={this.handleIncomingData}/>
         <Jumbotron/>
         <div className="question-cards-wrapper">
         {this.state.questionID ? (<QuestionPageApp invariable={this.state.questionID} sendDataUpToParent={this.handleIncomingData}/>) : (<QuestionCards sendDataUp={this.handleIncomingData}/>)}
+
         </div>
         <Footer/>
       </div>
