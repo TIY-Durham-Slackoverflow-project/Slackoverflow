@@ -12,21 +12,27 @@ class App extends Component {
     super(props);
     this.handleIncomingData = this.handleIncomingData.bind(this);
     this.state ={
-      questionID: "false"
+      displayForm: false
     };
   }
 
   handleIncomingData(value){
-    this.setState({ questionID: value });
-
+    if(value===this.state.displayForm){
+      this.setState({ displayForm: false });
+    }else{
+      this.setState({ displayForm: value });
+    }
   }
 
   render() {
     return (
       <div className="App">
 
-        <Header sendDataUpToParent={this.handleIncomingData}/>
-        <LoginForm/>
+        <Header sendDataUp={this.handleIncomingData}/>
+        {this.state.displayForm ?
+          <LoginForm display={this.state.displayForm}/> :
+          null
+        }
         <Jumbotron/>
         <div className="question-cards-wrapper">
         {this.state.questionID ? (<QuestionPageApp invariable={this.state.questionID} sendDataUpToParent={this.handleIncomingData}/>) : (<QuestionCards sendDataUp={this.handleIncomingData}/>)}

@@ -5,8 +5,12 @@ export default class LoginForm extends Component {
     super(props);
 
     this.state = {
-      register: false
+      // register: false
     }
+  }
+
+  submitFormData(event) {
+    
   }
 
   render() {
@@ -15,23 +19,28 @@ export default class LoginForm extends Component {
         <div className="login-form">
           <form>
             <div className="Header">
-
-              <h4>Login</h4>
+              {this.props.display==="register" ?
+                <h3>Register</h3> :
+                <h3>Login</h3>
+              }
             </div>
             <div className="form-group">
-              <label htmlFor="username">Username</label>
+              {/* <label htmlFor="username">Username</label> */}
               <input type="text" className="form-control" id="username" placeholder="Enter username"/>
             </div>
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              {/* <label htmlFor="password">Password</label> */}
               <input type="text" className="form-control" id="password" placeholder="Password goes here"/>
             </div>
-            <div className="login-button">
-              <button type="submit" className="btn btn-success">Login</button>
-            </div>
-            <div className="register-button">
-              <button type="submit" className="btn btn-primary">Register</button>
-            </div>
+
+            {this.props.display==="register" ?
+              <div className="form-group">
+                <button type="submit" className="btn btn-primary">Register</button>
+              </div> :
+              <div className="form-group">
+                <button type="submit" className="btn btn-success">Login</button>
+              </div>
+            }
           </form>
         </div>
       </div>

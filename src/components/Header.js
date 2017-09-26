@@ -5,6 +5,13 @@ import logo from "../styles/Screen-Shot.png";
 export default class Header extends Component {
   constructor(props) {
     super(props);
+    this.sendDataUp = this.sendDataUp.bind(this);
+  }
+
+  sendDataUp(event){
+    if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
+      this.props.sendDataUp(event.target.id);
+    }
   }
 
   render(){
@@ -18,9 +25,9 @@ export default class Header extends Component {
             <h3>slackoverflow</h3>
           </div>
         </div>
-        <div className = "header-right">
-          <a href = "" className = "login-btn">Login</a>
-          <a href = "" className = "register-btn">Register</a>
+        <div onClick={this.sendDataUp} className = "header-right">
+          <a id="login" className = "login-btn">Login</a>
+          <a id="register" className = "register-btn">Register</a>
         </div>
         {/* <LoginForm/> */}
       </div>
