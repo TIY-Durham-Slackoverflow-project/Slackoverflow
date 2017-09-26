@@ -4,6 +4,7 @@ import QuestionCard from './QuestionCard.js';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import Jumbotron from "./Jumbotron.js";
+import QuestionCards from './QuestionCards.js';
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
           <Header/>
           <Jumbotron/>
         <div className="App-list">
+          <QuestionCards/>
           <QuestionCard/>
           <QuestionCard/>
           <QuestionCard/>

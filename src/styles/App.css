@@ -55,6 +55,10 @@ body{
 }
 
 /* jumbotron styles */
+.jumbotron-quote{
+  opacity: 1;
+  color: black;
+}
 
 .jumbotron-wrapper{
   height: 50vh;
@@ -62,10 +66,21 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('stock.png');
-  color: white;
-  font-family: 'Open Sans', sans-serif;
-  border-top: solid 1px black;
-  border-bottom: solid 1px black;
+  background-image: url('stockphoto.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: 'Work Sans', sans-serif;
+  border-top: solid .5px black;
+  border-bottom: solid .5px black;
+}
 
+
+
+/* question cards styles */
+.question-cards-wrapper{
+  width: 85vw;
+  margin: 0 auto;
+  background-color: white;
+  height: 100vh;
 }
