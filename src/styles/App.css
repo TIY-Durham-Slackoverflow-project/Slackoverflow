@@ -43,10 +43,16 @@ body{
   color:#4C9689;
 }
 
-img.app-logo {
+.header-left img.app-logo {
   margin: 5px 15px 5px 0;
   width: auto;
   height: 65px;
+}
+
+.footer-wrapper img.app-logo {
+  margin: 5px 15px 5px 0;
+  width: auto;
+  height: 50px;
 }
 
 .login-btn{
