@@ -10,13 +10,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Header/>
-          <Jumbotron/>
-        <div className="App-list">
+        <Header/>
+        <Jumbotron/>
+        <div className="question-cards-wrapper">
           <QuestionCards/>
           <QuestionCard/>
           <QuestionCard/>
           <QuestionCard/>
+
         </div>
         <div className="App-Footer">
           <Footer/>
