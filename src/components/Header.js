@@ -14,7 +14,7 @@ export default class Header extends Component {
             <img src={logo} className="app-logo" alt="logo" />
           </div>
           <div className = "slack-title>">
-            <h3>Slack overflow</h3>
+            <h3>slackoverflow</h3>
           </div>
         </div>
         <div className = "header-right">
