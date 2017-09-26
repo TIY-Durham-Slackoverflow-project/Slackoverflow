@@ -6,7 +6,11 @@ export default class Footer extends Component {
   }
 
   render() {
-    return (<div>Footer</div>);
+    return (
+      <div className = 'footer-wrapper'>
+        <h3>slackoverflow</h3>
+      </div>
+    );
   }
 }
 

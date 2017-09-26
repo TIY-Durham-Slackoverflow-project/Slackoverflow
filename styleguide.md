@@ -3,6 +3,9 @@
 
 ## colors:
 - Dark Purple #4D384B
+- Background Grey #F2F2F5
+- Dark Pink #DF1463
+- Teal #4C9689
 
 
 ## fonts:

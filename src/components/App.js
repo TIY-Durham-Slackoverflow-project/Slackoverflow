@@ -1,25 +1,37 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../styles/App.css';
-import QuestionCard from './QuestionCard.js';
 import Header from './Header.js';
 import Footer from './Footer.js';
+import Jumbotron from "./Jumbotron.js";
+import QuestionCards from './QuestionCards.js';
+import QuestionPageApp from './QuestionPageApp.js';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.handleIncomingData = this.handleIncomingData.bind(this);
+    this.state ={
+      questionID: false
+    };
+  }
+
+  handleIncomingData(value){
+    this.setState({ questionID: value });
+
+  }
+
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <Header/>
+
+        <Header sendDataUpToParent={this.handleIncomingData}/>
+        <Jumbotron/>
+        <div className="question-cards-wrapper">
+        {this.state.questionID ? (<QuestionPageApp invariable={this.state.questionID} sendDataUpToParent={this.handleIncomingData}/>) : (<QuestionCards sendDataUp={this.handleIncomingData}/>)}
+
         </div>
-        <div className="App-list">
-          <QuestionCard/>
-          <QuestionCard/>
-          <QuestionCard/>
-        </div>
-        <div className="App-Footer">
-          <Footer/>
-        </div>
+        <Footer/>
       </div>
     );
   }
