@@ -79,7 +79,7 @@ body{
 .question-cards-wrapper{
   width: 85vw;
   margin: 0 auto;
-  height: 100vh;
+  margin-bottom: 55px;
 }
 
 .question-cards-wrapper-top{
@@ -187,7 +187,23 @@ th{
 
 }
 
-
 .question-card-wrapper{
   border-bottom: 1px solid black;
+}
+
+.footer-wrapper{
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  padding: 0 25px;
+  align-items: center;
+  background-color: #4D384B;
+  color: white;
+  border-bottom: solid 5px #4C9689;
+}
+
+.footer-wrapper h3{
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 20px;
 }
