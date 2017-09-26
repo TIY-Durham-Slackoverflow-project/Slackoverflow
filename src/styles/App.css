@@ -334,3 +334,7 @@ table{
 .answer-title-header{
   padding-top: 45px;
 }
+
+.answer-body-text{
+  font-family: "Open Sans", sans-serif;
+}
