@@ -22,7 +22,7 @@ export default class QuestionPageApp extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="single-question-container">
         <SingleQuestion
           sendDataUpToParent={this.handleIncomingData}/>
         Single question with all the details, and answers hopefully.

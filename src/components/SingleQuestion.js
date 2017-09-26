@@ -7,7 +7,6 @@ export default class SingleQuestion extends Component{
   render(){
     return(
       <div>
-        hello
       </div>
     )
   }
