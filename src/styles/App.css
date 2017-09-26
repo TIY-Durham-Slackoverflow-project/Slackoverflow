@@ -271,3 +271,13 @@ table{
   border: solid 1px black;
   margin-right: 15px;
 }
+
+.answer-header-left{
+  font-family: 'Work Sans', sans-serif;
+   color: #4D384B;
+   border-bottom: solid 5px #4D384B;
+}
+
+.answer-title-header{
+  padding-top: 45px;
+}
