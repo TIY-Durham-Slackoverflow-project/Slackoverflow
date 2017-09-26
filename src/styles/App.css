@@ -231,9 +231,7 @@ th, td{
   text-align: center;
 }
 
-th{
-  text-decoration: underline;
-}
+
 
 .question-card-content-bottom{
   display: flex;
@@ -271,8 +269,59 @@ th{
   font-size: 20px;
 }
 
+
 .footer-wrapper img.app-logo {
   margin: 5px 15px 5px 0;
   width: auto;
   height: 50px;
+}
+
+/* single question page */
+
+.single-question-body{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+.single-question-body-left{
+  width: 69%;
+}
+
+.single-question-body-right{
+  width: 30%;
+  margin-top: 10px;
+}
+
+table{
+  width: 100%;
+}
+
+.question-tags-list li{
+  list-style: none;
+  padding: 8px;
+  margin: 5px;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #B5E2E8;
+}
+
+.question-tags-list{
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.single-question-body-bottom{
+  display: flex;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+.single-question-body-bottom img{
+  width: 50px;
+  height: 50px;
+  border: solid 1px black;
+  margin-right: 15px;
 }

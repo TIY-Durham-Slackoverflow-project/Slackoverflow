@@ -7,7 +7,6 @@ export default class Jumbotron extends Component {
       <div className = "jumbotron-wrapper">
         {/* <LoginForm/> */}
         <div className = "jumbotron-quote">
-          <h1>Inspiring Quote and Better Image Goes Here...</h1>
         </div>
       </div>
     )
