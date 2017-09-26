@@ -13,8 +13,10 @@ class App extends Component {
     this.handleIncomingData = this.handleIncomingData.bind(this);
     this.handleIncomingQuestion = this.handleIncomingQuestion.bind(this);
     this.state ={
+
       displayForm: false,
       questionID: false
+
     };
   }
 
