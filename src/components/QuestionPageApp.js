@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../styles/App.css';
 import SingleQuestion from "../components/SingleQuestion.js";
+import AnswerCard from '../components/AnswerCard.js';
 
 export default class QuestionPageApp extends Component {
   constructor(props){
@@ -25,7 +26,7 @@ export default class QuestionPageApp extends Component {
       <div className="single-question-container">
 
         <SingleQuestion/>
-
+        <AnswerCard/>
       </div>
     );
   }
