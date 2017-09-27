@@ -121,13 +121,10 @@ h1{
 }
 
 /* jumbotron styles */
-.jumbotron-quote{
-  opacity: 1;
-  color: black;
-}
+
 
 .jumbotron-wrapper{
-  height: 50vh;
+  height: 40vh;
   width: 100vw;
   margin-top: 70px;
   display: flex;
@@ -267,6 +264,7 @@ th, td{
   background-color: #4D384B;
   color: white;
   border-bottom: solid 5px #4C9689;
+
 }
 
 .footer-wrapper h3{
@@ -385,5 +383,23 @@ table{
 
 .answer-form-header{
   color:  #4D384B;
+}
 
+.ask-question-page-wrapper{
+  height: 40vh;
+}
+
+.ask-question-page-header{
+  font-family: "Work Sans", sans-serif;
+  color: #4D384B;
+  font-size: 20px;
+}
+
+.ask-question-form textarea{
+  width: 60vw;
+  height: 20vh;
+}
+
+.ask-question-form button{
+  width: 80%;
 }

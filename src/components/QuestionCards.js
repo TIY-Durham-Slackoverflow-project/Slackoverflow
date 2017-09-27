@@ -13,6 +13,8 @@ export default class QuestionCards extends Component {
 
     this.state ={
 
+      postQuestion: "false"
+
     }
     // this.sendDataUp = this.sendDataUp.bind(this);
   }
