@@ -24,23 +24,23 @@ export default class LoginForm extends Component {
 
   }
 
-  login(event){
-    this.
-
-    event.preventDefault();
-    request
-      .post(url)
-      .send({userName: this.state.userName, password: this.state.password})
-      .end((err, res) =>{
-        if(err) {
-          handleError({error: res.body.error});
-        }else{
-          this.setState({token: res.body.token});
-          cookie.save({token: res.body.token});
-        }
-      })
-
-  }
+  // login(event){
+  //   this.
+  //
+  //   event.preventDefault();
+  //   request
+  //     .post(url)
+  //     .send({userName: this.state.userName, password: this.state.password})
+  //     .end((err, res) =>{
+  //       if(err) {
+  //         handleError({error: res.body.error});
+  //       }else{
+  //         this.setState({token: res.body.token});
+  //         cookie.save({token: res.body.token});
+  //       }
+  //     })
+  //
+  // }
 
   handleError(){}
 
@@ -61,7 +61,9 @@ export default class LoginForm extends Component {
             </div>
             <div className="form-group">
               {/* <label htmlFor="password">Password</label> */}
-              <input onChange={this.} type="text" className="form-control" id="password" placeholder="Password goes here" value={this.state.password}/>
+              <input
+                // onChange={this.}
+                type="text" className="form-control" id="password" placeholder="Password goes here" value={this.state.password}/>
             </div>
 
             {this.props.display==="register" ?

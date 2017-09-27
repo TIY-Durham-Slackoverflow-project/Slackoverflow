@@ -27,19 +27,19 @@ class App extends Component {
     this.state ={
       token: null,
       displayForm: false,
-      questionID: "false"
+      questionID: false
 
     };
   }
 
-  componentWillMount(){
-    this.setState({token: cookie.load})
-  }
-
-  setToken(){
-    this.setState({token: token});
-    cookie.save({'token': token});?
-  }
+  // componentWillMount(){
+  //   this.setState({token: cookie.load})
+  // }
+  //
+  // setToken(){
+  //   this.setState({token: token});
+  //   cookie.save({'token': token});
+  // }
 
   // Header--
   sendLoginFormRequestUp(value){

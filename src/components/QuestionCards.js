@@ -7,23 +7,22 @@ import AnswerCard from '../components/AnswerCard.js';
 export default class QuestionCards extends Component {
   constructor(props) {
     super(props);
-    this.sendDataUp = this.sendDataUp.bind(this);
+    // this.sendDataUp = this.sendDataUp.bind(this);
     this.sendQuestionIdUpToParent = this.sendQuestionIdUpToParent.bind(this);
-    this.sendQuestionUpToParent = this.sendQuestionUpToParent.bind(this);
+    this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
   }
-  sendAnswerUp(id){
-    this.props.sendDataUp(id);
-  }
+  // sendAnswerUp(id){
+  //   this.props.sendDataUp(id);
+  // }
 
   sendQuestionIdUpToParent(e){
     this.props.sendQuestionUpToParent(e);
   }
 
-  sendQuestionUpToParent(event){
-  if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
-    this.props.sendQuestionUpToParent(event.target.id);
+  handleQuestionSubmitFormRequest(e){
+    this.props.handleQuestionSubmitFormRequest(e);
   }
-}
+
 
   // fetchSomeShit(){}
 
@@ -34,11 +33,13 @@ export default class QuestionCards extends Component {
           <div className = "question-cards-wrapper-top-left">
             <h2>all questions</h2>
           </div>
-          <div onClick={this.sendQuestionUpToParent} className = "question-cards-wrapper-top-right">
+          <div onClick={this.handleQuestionSubmitFormRequest}
+            // id={}
+            className = "question-cards-wrapper-top-right">
             <a href="">Ask a Question</a>
           </div>
         </div>
-        <QuestionCard sendQuestionUpToParent={this.sendQuestionUpToParent}/>
+        <QuestionCard sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}/>
       </div>
     );
   }

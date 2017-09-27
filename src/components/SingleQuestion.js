@@ -4,8 +4,8 @@ export default class SingleQuestion extends Component{
   constructor(props){
     super(props);
 
-    this.handleVoteChangeRequest = this.handleVoteChangeRequest.bind(this);
-    this.handleSubmittedAnswerForm = this.handleSubmittedAnswerForm.bind(this);
+    // this.handleVoteChangeRequest = this.handleVoteChangeRequest.bind(this);
+    // this.handleSubmittedAnswerForm = this.handleSubmittedAnswerForm.bind(this);
   }
 
   submitAnswerFormUp(event){
@@ -30,7 +30,9 @@ export default class SingleQuestion extends Component{
             <div className = "question-cards-wrapper-top-left">
               <h2>question title goes here</h2>
             </div>
-            <div onClick={this.makeANewQuestion} className = "question-cards-wrapper-top-right">
+            <div
+              onClick={this.makeANewQuestion}
+              className = "question-cards-wrapper-top-right">
               <a href="">Ask a Question</a>
             </div>
           </div>
