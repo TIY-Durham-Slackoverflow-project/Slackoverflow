@@ -47,7 +47,7 @@ export default class QuestionCards extends Component {
               </div>
               <div className = "question-cards-wrapper-top-right">
                 <a onClick={this.handleQuestionSubmitFormRequest}
-                  id="display"
+                  id="true"
                   href="">Ask a Question</a>
               </div>
             </div>
