@@ -3,7 +3,25 @@ import React, {Component} from 'react';
 export default class SingleQuestion extends Component{
   constructor(props){
     super(props);
+
+    // this.handleVoteChangeRequest = this.handleVoteChangeRequest.bind(this);
+    // this.handleSubmittedAnswerForm = this.handleSubmittedAnswerForm.bind(this);
   }
+
+  submitAnswerFormUp(event){
+    if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
+      // post
+    }
+  }
+
+  sendQuestionUpToParent(event){
+    if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
+      this.props.sendQuestionUpToParent(event.target.id);
+    }
+  }
+
+// post: answerQ, voteA, voteQ
+
   render(){
     return(
       <div>
@@ -12,7 +30,9 @@ export default class SingleQuestion extends Component{
             <div className = "question-cards-wrapper-top-left">
               <h1>question title goes here</h1>
             </div>
-            <div className = "question-cards-wrapper-top-right">
+            <div
+              onClick={this.makeANewQuestion}
+              className = "question-cards-wrapper-top-right">
               <a href="">Ask a Question</a>
             </div>
           </div>

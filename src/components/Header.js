@@ -5,20 +5,25 @@ import logo from "../styles/Screen-Shot.png";
 export default class Header extends Component {
   constructor(props) {
     super(props);
-    this.sendDataUp = this.sendDataUp.bind(this);
+    this.sendLoginFormRequestUp = this.sendLoginFormRequestUp.bind(this);
+    this.navigateBackRequest = this.navigateBackRequest.bind(this);
   }
 
-  sendDataUp(event){
+  sendLoginFormRequestUp(event){
     if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
       this.props.sendDataUp(event.target.id);
     }
+  }
+
+  navigateBackRequest(goBack){
+    this.props.navigateBackRequest(goBack);
   }
 
   render(){
     return (
       <div className = "header-wrapper">
         <div className = "header-left">
-          <div className = "slack-logo">
+          <div onClick={this.navigateBackRequest} className = "slack-logo">
             <img src={logo} className="app-logo" alt="logo" />
           </div>
           <div className = "slack-title>">

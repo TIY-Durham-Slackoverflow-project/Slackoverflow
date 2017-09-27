@@ -11,16 +11,41 @@ import QuestionPageApp from './QuestionPageApp.js';
 class App extends Component {
   constructor(props){
     super(props);
-    this.handleIncomingData = this.handleIncomingData.bind(this);
-    this.handleIncomingQuestion = this.handleIncomingQuestion.bind(this);
+
+    // header
+    this.sendLoginFormRequestUp = this.sendLoginFormRequestUp.bind(this);
+    this.navigateBackRequest = this.navigateBackRequest.bind(this);
+    this.submitLoginData = this.submitLoginData.bind(this);
+    this.submitRegisterData = this.submitRegisterData.bind(this);
+
+
+
+    // question cards
+    this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
+    this.handleSingleQuestionRequest = this.handleSingleQuestionRequest.bind(this);
+    this.handleSubmittedAnswerForm = this.handleSubmittedAnswerForm.bind(this);
+
     this.state ={
+      token: null,
       displayForm: false,
-      questionID: "false",
+      questionID: false,
       profilePage: "false"
+
+
     };
   }
 
-  handleIncomingData(value){
+  // componentWillMount(){
+  //   this.setState({token: cookie.load})
+  // }
+  //
+  // setToken(){
+  //   this.setState({token: token});
+  //   cookie.save({'token': token});
+  // }
+
+  // Header--
+  sendLoginFormRequestUp(value){
     if(value===this.state.displayForm){
       this.setState({ displayForm: false });
     }else{
@@ -28,7 +53,37 @@ class App extends Component {
     }
   }
 
-  handleIncomingQuestion(value){
+  submitLoginData(){
+    // (post) check user data against DB. Returns with token. Put into cookie.
+  }
+
+  submitRegisterData(){
+    // (post) new user data
+  }
+
+  navigateBackRequest(){
+    this.setState({ questionID: false });
+  }
+
+
+  //------ QuestionPageApp--Single question, answers and answer form
+  handleVoteChangeRequest(qOrA, plusOrMinus){
+    // one vote per Q or A per user? -- break into two fxns?
+  }
+
+  // handleAnswerVoteChangeRequest(){}
+
+  handleSubmittedAnswerForm(){
+    // call fxn to post to DB
+  }
+
+
+  // ------QuestionCards--Main page--list of questions
+  handleQuestionSubmitFormRequest(){
+    // Check login => display form. Display form component. Accept data and post to DB
+  }
+
+  handleSingleQuestionRequest(value){
     this.setState({questionID: value});
   }
 
@@ -40,9 +95,16 @@ class App extends Component {
     return (
       <div className="App">
 
-        <Header sendDataUp={this.handleIncomingData}/>
+        <Header
+          sendLoginFormRequestUp={this.sendLoginFormRequestUp}
+          navigateBackRequest={this.navigateBackRequest}
+        />
         {this.state.displayForm ?
-          <LoginForm display={this.state.displayForm}/> :
+          <LoginForm
+            display={this.state.displayForm}
+            submitLoginData={this.submitLoginData}
+            submitRegisterData={this.submitRegisterData}
+          /> :
           null
         }
         <Jumbotron/>
