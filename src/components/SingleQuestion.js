@@ -3,7 +3,17 @@ import React, {Component} from 'react';
 export default class SingleQuestion extends Component{
   constructor(props){
     super(props);
+    this.makeANewQuestion = this.makeANewQuestion.bind(this);
   }
+
+  makeANewQuestion(event){
+    if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
+      this.props.makeANewQuestion(event.target.id);
+    }
+  }
+
+// answerQ, voteA, voteQ
+
   render(){
     return(
       <div>
@@ -12,7 +22,7 @@ export default class SingleQuestion extends Component{
             <div className = "question-cards-wrapper-top-left">
               <h2>question title goes here</h2>
             </div>
-            <div className = "question-cards-wrapper-top-right">
+            <div onClick={this.makeANewQuestion} className = "question-cards-wrapper-top-right">
               <a href="">Ask a Question</a>
             </div>
           </div>

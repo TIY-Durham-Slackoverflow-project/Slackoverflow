@@ -18,15 +18,20 @@ export default class QuestionPageApp extends Component {
       idvariable: value,
       questionID: false
     });
-    this.props.sendDataUpToParent(value);
   }
+  // this.props.sendDataUpToParent(value);
+
+  // handle:  answerQ, voteA, voteQ
 
   render() {
     return (
       <div className="single-question-container">
 
-        <SingleQuestion/>
+
+        <SingleQuestion makeANewQuestion={this.}/>
+
         <AnswerCard/>
+
       </div>
     );
   }

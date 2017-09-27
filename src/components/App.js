@@ -10,8 +10,15 @@ import QuestionPageApp from './QuestionPageApp.js';
 class App extends Component {
   constructor(props){
     super(props);
-    this.handleIncomingData = this.handleIncomingData.bind(this);
-    this.handleIncomingQuestion = this.handleIncomingQuestion.bind(this);
+
+    this.sendLoginFormRequestUp = this.sendLoginFormRequestUp.bind(this);
+
+
+
+    this.handleSingleQuestionRequest = this.handleSingleQuestionRequest.bind(this);
+    this.handleAnswerSubmitFormRequest = this.handleAnswerSubmitFormRequest.bind(this);
+    this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
+
     this.state ={
 
       displayForm: false,
@@ -20,7 +27,8 @@ class App extends Component {
     };
   }
 
-  handleIncomingData(value){
+  // Header--
+  sendLoginFormRequestUp(value){
     if(value===this.state.displayForm){
       this.setState({ displayForm: false });
     }else{
@@ -28,22 +36,46 @@ class App extends Component {
     }
   }
 
-  handleIncomingQuestion(value){
+  getFormData(){}
+
+  // QuestionPageApp--
+
+  handleSingleQuestionRequest(value){
     this.setState({questionID: value});
   }
 
+  sendAnswerUp(){}
+
+  // QuestionCard--
+  handleSingleQuestionRequest(){}
+
+  handleAnswerSubmitFormRequest(){}
+
+  handleQuestionSubmitFormRequest(){}
+
+
+// need callback for login
   render() {
     return (
       <div className="App">
 
-        <Header sendDataUp={this.handleIncomingData}/>
+        <Header sendLoginFormRequestUp={this.handleSingleQuestionRequest}/>
         {this.state.displayForm ?
-          <LoginForm display={this.state.displayForm}/> :
+          <LoginForm display={this.state.displayForm}
+            getFormData={}
+          /> :
           null
         }
         <Jumbotron/>
         <div className="question-cards-wrapper">
-        {this.state.questionID ? (<QuestionPageApp invariable={this.state.questionID} sendQuestionUpToParent={this.handleIncomingQuestion}/>) : (<QuestionCards sendDataUp={this.handleIncomingData}/>)}
+        {this.state.questionID ?
+          (<QuestionPageApp sendAnswerUp={this.state.handleAnswerSubmitFormRequest} sendQuestionVotesUpToParent={this.handleIncomingQuestion}
+
+          />) :
+          (<QuestionCards sendQuestionIdUpToParent={this.handleSingleQuestionRequest}
+          sendAnswerUp={this.handleAnswerSubmitFormRequest}
+          sendQuestionUpToParent={this.handleQuestionSubmitFormRequest}/>)
+        }
 
         </div>
         <Footer/>
