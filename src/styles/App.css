@@ -338,3 +338,45 @@ table{
 .answer-body-text{
   font-family: "Open Sans", sans-serif;
 }
+
+.answer-form-header{
+  border-bottom: solid 5px #4D384B;
+  margin-top: 80px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+#answerForm textarea{
+  width: 55vw;
+  height: 15vw;
+  border: solid 1px #4D384B;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color:  #4D384B;
+}
+
+#answerForm {
+  padding-top: 20px;
+}
+
+.answerSubmit{
+  border: solid 1px #4D384B;
+  padding: 6px 10px;
+  color: #4D384B;
+  border-radius: 6px;
+  margin-right: 10vw;
+  background-color: transparent;
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.answerSubmit:hover{
+  background-color: #DF1463;
+  color: white;
+  border: solid 1px white;
+  cursor: pointer;
+}
+
+.answer-form-header{
+  color:  #4D384B;
+
+}
