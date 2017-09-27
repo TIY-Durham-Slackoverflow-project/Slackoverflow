@@ -109,8 +109,15 @@ class App extends Component {
         }
         <Jumbotron/>
         <div className="question-cards-wrapper">
-        {this.state.questionID ? (<QuestionPageApp invariable={this.state.questionID} sendQuestionUpToParent={this.handleIncomingQuestion}/>) : (<QuestionCards sendDataUp={this.handleIncomingData}/>)}
-        {this.state.profilePage ? (<ProfilePageApp invariable={this.state.profilePage} sendProfileUpToParent={this.handleIncomingProfilePage}/>) : (<QuestionCards sendDataUp={this.handleIncomingData}/>)}
+        {this.state.questionID ?
+          (<QuestionPageApp />) :
+          (<QuestionCards
+            sendQuestionIdUpToParent={this.handleSingleQuestionRequest}
+            submitAnswerFormUp={this.handleSubmittedAnswerForm}
+            sendQuestionUpToParent={this.handleQuestionSubmitFormRequest}
+
+          />)
+        }
         </div>
         <Footer/>
       </div>
