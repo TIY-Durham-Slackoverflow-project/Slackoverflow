@@ -3,6 +3,13 @@ body{
   background-color: #F2F2F5;
 }
 
+h1{
+  font-family: 'Work Sans', sans-serif;
+  font-size: 35px;
+  color:  #4C9689;
+
+}
+
 /* header styles */
 
 .header-wrapper{

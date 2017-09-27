@@ -28,7 +28,7 @@ export default class SingleQuestion extends Component{
         <div className = "question-title-header">
           <div className = "question-cards-wrapper-top">
             <div className = "question-cards-wrapper-top-left">
-              <h2>question title goes here</h2>
+              <h1>question title goes here</h1>
             </div>
             <div
               onClick={this.makeANewQuestion}
