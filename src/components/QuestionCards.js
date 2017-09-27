@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import QuestionCard from '../components/QuestionCard.js';
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
+import AnswerCard from '../components/AnswerCard.js';
 
 export default class QuestionCards extends Component {
   constructor(props) {

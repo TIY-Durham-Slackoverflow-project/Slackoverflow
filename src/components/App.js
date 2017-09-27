@@ -22,7 +22,7 @@ class App extends Component {
     this.state ={
 
       displayForm: false,
-      questionID: false
+      questionID: "false"
 
     };
   }
