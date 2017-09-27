@@ -7,6 +7,7 @@ import LoginForm from "./LoginForm.js";
 import QuestionCards from './QuestionCards.js';
 import ProfilePageApp from './ProfilePageApp.js';
 import QuestionPageApp from './QuestionPageApp.js';
+import QuestionForm from '../components/QuestionForm.js';
 
 class App extends Component {
   constructor(props){
@@ -21,16 +22,16 @@ class App extends Component {
 
 
     // question cards
-    // this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
     this.sendQuestionIdUpToParent = this.sendQuestionIdUpToParent.bind(this);
     this.handleSubmittedAnswerForm = this.handleSubmittedAnswerForm.bind(this);
+    this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
 
     this.state ={
       token: null,
       displayForm: false,
       questionID: false,
-      profilePage: "false"
-
+      profilePage: false,
+      postQuestion: false
 
     };
   }
@@ -65,7 +66,6 @@ class App extends Component {
     this.setState({ questionID: false });
   }
 
-
   //------ QuestionPageApp--Single question, answers and answer form
   handleVoteChangeRequest(qOrA, plusOrMinus){
     // one vote per Q or A per user? -- break into two fxns?
@@ -77,8 +77,13 @@ class App extends Component {
     // call fxn to post to DB
   }
 
-
   // ------QuestionCards--Main page--list of questions
+  // Check login => display form. Display form component. Accept data and post to
+  handleQuestionSubmitFormRequest(value){
+
+    this.setState({postQuestion: value});
+  }
+
   sendQuestionIdUpToParent(value){
     this.setState({questionID: value});
   }
@@ -104,14 +109,16 @@ class App extends Component {
           null
         }
         <Jumbotron/>
+        {this.state.postQuestion ?
+          <QuestionForm/>
+         : null
+        }
         <div className="question-cards-wrapper">
         {this.state.questionID ?
           (<QuestionPageApp />) :
           (<QuestionCards
             sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
-            // submitAnswerFormUp={this.handleSubmittedAnswerForm}
-            // sendQuestionUpToParent={this.handleQuestionSubmitFormRequest}
-
+            handleQuestionSubmitFormRequest={this.handleQuestionSubmitFormRequest}
           />)
         }
         </div>
