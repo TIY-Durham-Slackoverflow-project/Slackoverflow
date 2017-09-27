@@ -11,7 +11,7 @@ export default class Header extends Component {
 
   sendLoginFormRequestUp(event){
     if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
-      this.props.sendDataUp(event.target.id);
+      this.props.sendLoginFormRequestUp(event.target.id);
     }
   }
 
@@ -30,7 +30,7 @@ export default class Header extends Component {
             <h3>slackoverflow</h3>
           </div>
         </div>
-        <div onClick={this.sendDataUp} className = "header-right">
+        <div onClick={this.sendLoginFormRequestUp} className = "header-right">
           <a id="login" className = "login-btn">Login</a>
           <a id="register" className = "register-btn">Register</a>
         </div>

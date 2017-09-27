@@ -22,7 +22,7 @@ export default class QuestionCard extends Component {
             <div className = "question-card-icon"><img src="" alt = "icon"/></div>
             <a href = "">name here</a>
           </div>
-          <div onClick={this.sendQuestionIdUpToParent} className = "question-card-content-middle">
+          <div onClick={this.sendQuestionIdUpToParent} id="single" className = "question-card-content-middle">
             <h3>This is a question header</h3>
             <p>This is more info about the question...</p>
             <ul className = "question-tags">
