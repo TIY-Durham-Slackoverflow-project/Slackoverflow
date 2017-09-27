@@ -3,16 +3,24 @@ import React, {Component} from 'react';
 export default class SingleQuestion extends Component{
   constructor(props){
     super(props);
-    this.makeANewQuestion = this.makeANewQuestion.bind(this);
+
+    this.handleVoteChangeRequest = this.handleVoteChangeRequest.bind(this);
+    this.handleSubmittedAnswerForm = this.handleSubmittedAnswerForm.bind(this);
   }
 
-  makeANewQuestion(event){
+  submitAnswerFormUp(event){
     if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
-      this.props.makeANewQuestion(event.target.id);
+      // post
     }
   }
 
-// answerQ, voteA, voteQ
+  sendQuestionUpToParent(event){
+    if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
+      this.props.sendQuestionUpToParent(event.target.id);
+    }
+  }
+
+// post: answerQ, voteA, voteQ
 
   render(){
     return(

@@ -6,6 +6,7 @@ export default class Header extends Component {
   constructor(props) {
     super(props);
     this.sendLoginFormRequestUp = this.sendLoginFormRequestUp.bind(this);
+    this.navigateBackRequest = this.navigateBackRequest.bind(this);
   }
 
   sendLoginFormRequestUp(event){
@@ -14,11 +15,15 @@ export default class Header extends Component {
     }
   }
 
+  navigateBackRequest(goBack){
+    this.props.navigateBackRequest(goBack);
+  }
+
   render(){
     return (
       <div className = "header-wrapper">
         <div className = "header-left">
-          <div className = "slack-logo">
+          <div onClick={this.navigateBackRequest} className = "slack-logo">
             <img src={logo} className="app-logo" alt="logo" />
           </div>
           <div className = "slack-title>">

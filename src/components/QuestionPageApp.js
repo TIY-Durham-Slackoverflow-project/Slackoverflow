@@ -6,29 +6,35 @@ import AnswerCard from '../components/AnswerCard.js';
 export default class QuestionPageApp extends Component {
   constructor(props){
     super(props);
-    this.handleIncomingData = this.handleIncomingData.bind(this);
+
+    // this.submitAnswerFormUp = this.submitAnswerFormUp.bind(this);
+
     this.state={
       idvariable: "",
       questionID: false
     };
   }
 
-  handleIncomingData(value){
-    this.setState({
-      idvariable: value,
-      questionID: false
-    });
-  }
+  // handleIncomingData(value){
+  //   this.setState({
+  //     idvariable: value,
+  //     questionID: false
+  //   });
+  // }
   // this.props.sendDataUpToParent(value);
 
-  // handle:  answerQ, voteA, voteQ
+
+
+
 
   render() {
     return (
       <div className="single-question-container">
 
 
-        <SingleQuestion makeANewQuestion={this.}/>
+        <SingleQuestion
+          // submitAnswerFormUp={this.submitAnswerFormUp}
+        />
 
         <AnswerCard/>
 

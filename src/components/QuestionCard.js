@@ -8,7 +8,7 @@ export default class QuestionCard extends Component {
 
   sendQuestionIdUpToParent(event){
     if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
-      this.props.sendQuestionUpToParent(event.target.id);
+      this.props.sendQuestionIdUpToParent(event.target.id);
     }
   }
 
