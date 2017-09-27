@@ -10,7 +10,7 @@ export default class QuestionCards extends Component {
     super(props);
 
     this.state ={
-      postQuestion: false
+      postQuestion: "false"
     }
     // this.sendDataUp = this.sendDataUp.bind(this);
     this.sendQuestionIdUpToParent = this.sendQuestionIdUpToParent.bind(this);
