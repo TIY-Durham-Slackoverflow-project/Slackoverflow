@@ -21,7 +21,7 @@ class App extends Component {
 
 
     // question cards
-    this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
+    // this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
     this.handleSingleQuestionRequest = this.handleSingleQuestionRequest.bind(this);
     this.handleSubmittedAnswerForm = this.handleSubmittedAnswerForm.bind(this);
 
@@ -79,10 +79,6 @@ class App extends Component {
 
 
   // ------QuestionCards--Main page--list of questions
-  handleQuestionSubmitFormRequest(){
-    // Check login => display form. Display form component. Accept data and post to DB
-  }
-
   handleSingleQuestionRequest(value){
     this.setState({questionID: value});
   }
@@ -114,7 +110,7 @@ class App extends Component {
           (<QuestionCards
             sendQuestionIdUpToParent={this.handleSingleQuestionRequest}
             submitAnswerFormUp={this.handleSubmittedAnswerForm}
-            sendQuestionUpToParent={this.handleQuestionSubmitFormRequest}
+            // sendQuestionUpToParent={this.handleQuestionSubmitFormRequest}
 
           />)
         }
