@@ -5,10 +5,10 @@ import logo from "../styles/Screen-Shot.png";
 export default class Header extends Component {
   constructor(props) {
     super(props);
-    this.sendDataUp = this.sendDataUp.bind(this);
+    this.sendLoginFormRequestUp = this.sendLoginFormRequestUp.bind(this);
   }
 
-  sendDataUp(event){
+  sendLoginFormRequestUp(event){
     if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
       this.props.sendDataUp(event.target.id);
     }
