@@ -25,11 +25,6 @@ export default class QuestionCard extends Component {
           <div onClick={this.sendQuestionIdUpToParent} id="single" className = "question-card-content-middle">
             <h3>This is a question header</h3>
             <p>This is more info about the question...</p>
-            <ul className = "question-tags">
-              <li>javascript</li>
-              <li>react</li>
-              <li>css</li>
-            </ul>
           </div>
           <div className = "question-card-content-right">
             <table>

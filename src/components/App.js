@@ -29,7 +29,8 @@ class App extends Component {
       token: null,
       displayForm: false,
       questionID: false,
-      profilePage: "false"
+      profilePage: false,
+
 
 
     };
