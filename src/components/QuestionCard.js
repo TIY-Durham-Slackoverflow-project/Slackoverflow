@@ -13,7 +13,7 @@ export default class QuestionCard extends Component {
   }
 
   render() {
-    // let mapper = this.props.arrayOfSix.map((mapped, index) =>{
+    // let mapper = this.props.arrayOfQuestionObjects.map((mapped, index) =>{
     // id={mapped.id} goes with onClick
       return (
         <div className="question-card-wrapper">

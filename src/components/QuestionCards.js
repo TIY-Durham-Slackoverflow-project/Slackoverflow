@@ -13,7 +13,7 @@ export default class QuestionCards extends Component {
 
     this.state ={
 
-      postQuestion: "false"
+      postQuestion: false
 
     }
     // this.sendDataUp = this.sendDataUp.bind(this);
@@ -22,6 +22,7 @@ export default class QuestionCards extends Component {
   handleQuestionSubmitFormRequest(event){
     if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
       this.props.handleQuestionSubmitFormRequest(event.target.id);
+      this.setState({postQuestion: event.target.id});
     }
   }
 
@@ -42,16 +43,23 @@ export default class QuestionCards extends Component {
 
         <div className="question-card-wrapper">
             <div className = "question-cards-wrapper-top">
-              <div className = "question-cards-wrapper-top-left">
-                <h2>all questions</h2>
-              </div>
-              <div className = "question-cards-wrapper-top-right">
-                <a onClick={this.handleQuestionSubmitFormRequest}
-                  id="true"
-                  href="">Ask a Question</a>
-              </div>
+              {this.state.postQuestion ?
+                null :
+                (<div>
+                  <div className = "question-cards-wrapper-top-left">
+                    <h2>all questions</h2>
+                  </div>
+                  <div className = "question-cards-wrapper-top-right">
+                    <a onClick={this.handleQuestionSubmitFormRequest}
+                      id="true"
+                      >Ask a Question</a>
+                  </div>
+                </div>)
+              }
             </div>
-            <QuestionCard sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}/>
+            <QuestionCard sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
+              // arrayOfQuestionObjects={this.??}
+            />
           </div>
       </div>
     );

@@ -30,11 +30,11 @@ export default class SingleQuestion extends Component{
             <div className = "question-cards-wrapper-top-left">
               <h1>question title goes here</h1>
             </div>
-            <div
+            {/* <div
               // onClick={this.makeANewQuestion}
               className = "question-cards-wrapper-top-right">
               <a href="">Ask a Question</a>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className = "single-question-body">

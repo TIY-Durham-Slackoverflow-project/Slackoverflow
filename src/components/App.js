@@ -110,8 +110,8 @@ class App extends Component {
         }
         <Jumbotron/>
         {this.state.postQuestion ?
-          <QuestionForm/>
-         : null
+          <QuestionForm/> :
+          null
         }
         <div className="question-cards-wrapper">
         {this.state.questionID ?
