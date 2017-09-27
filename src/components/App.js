@@ -5,6 +5,7 @@ import Footer from './Footer.js';
 import Jumbotron from "./Jumbotron.js";
 import LoginForm from "./LoginForm.js";
 import QuestionCards from './QuestionCards.js';
+import ProfilePageApp from './ProfilePageApp.js';
 import QuestionPageApp from './QuestionPageApp.js';
 
 class App extends Component {
@@ -13,10 +14,9 @@ class App extends Component {
     this.handleIncomingData = this.handleIncomingData.bind(this);
     this.handleIncomingQuestion = this.handleIncomingQuestion.bind(this);
     this.state ={
-
       displayForm: false,
-      questionID: "false"
-
+      questionID: "false",
+      profilePage: "false"
     };
   }
 
@@ -32,6 +32,10 @@ class App extends Component {
     this.setState({questionID: value});
   }
 
+  handleIncomingProfilePage(value){
+    this.setState({profilePage: value});
+  }
+
   render() {
     return (
       <div className="App">
@@ -44,7 +48,7 @@ class App extends Component {
         <Jumbotron/>
         <div className="question-cards-wrapper">
         {this.state.questionID ? (<QuestionPageApp invariable={this.state.questionID} sendQuestionUpToParent={this.handleIncomingQuestion}/>) : (<QuestionCards sendDataUp={this.handleIncomingData}/>)}
-
+        {this.state.profilePage ? (<ProfilePageApp invariable={this.state.profilePage} sendProfileUpToParent={this.handleIncomingProfilePage}/>) : (<QuestionCards sendDataUp={this.handleIncomingData}/>)}
         </div>
         <Footer/>
       </div>
