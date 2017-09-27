@@ -22,7 +22,7 @@ class App extends Component {
 
     // question cards
     // this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
-    this.handleSingleQuestionRequest = this.handleSingleQuestionRequest.bind(this);
+    this.sendQuestionIdUpToParent = this.sendQuestionIdUpToParent.bind(this);
     this.handleSubmittedAnswerForm = this.handleSubmittedAnswerForm.bind(this);
 
     this.state ={
@@ -79,7 +79,7 @@ class App extends Component {
 
 
   // ------QuestionCards--Main page--list of questions
-  handleSingleQuestionRequest(value){
+  sendQuestionIdUpToParent(value){
     this.setState({questionID: value});
   }
 
@@ -108,8 +108,8 @@ class App extends Component {
         {this.state.questionID ?
           (<QuestionPageApp />) :
           (<QuestionCards
-            sendQuestionIdUpToParent={this.handleSingleQuestionRequest}
-            submitAnswerFormUp={this.handleSubmittedAnswerForm}
+            sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
+            // submitAnswerFormUp={this.handleSubmittedAnswerForm}
             // sendQuestionUpToParent={this.handleQuestionSubmitFormRequest}
 
           />)

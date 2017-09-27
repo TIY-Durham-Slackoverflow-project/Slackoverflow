@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import QuestionCard from '../components/QuestionCard.js';
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
-import AnswerCard from '../components/AnswerCard.js';
+// import AnswerCard from '../components/AnswerCard.js';
 import QuestionForm from '../components/QuestionForm.js';
 
 export default class QuestionCards extends Component {
@@ -20,17 +20,21 @@ export default class QuestionCards extends Component {
   //   this.props.sendDataUp(id);
   // }
 
+
+
   sendQuestionIdUpToParent(e){
     this.props.sendQuestionIdUpToParent(e);
   }
 
-  handleQuestionSubmitFormRequest(e){
+  handleQuestionSubmitFormRequest(event){
     // Check login => display form. Display form component. Accept data and post to
-    this.setState({postQuestion: true})
+
+    this.setState({postQuestion: event.target.id})
   }
 
   submitQuestionToDatabase(){
     // post
+    this.setState({postQuestion: false})
   }
 
   // fetchSomeShit(){}
@@ -47,7 +51,7 @@ export default class QuestionCards extends Component {
                 <h2>all questions</h2>
               </div>
               <div onClick={this.handleQuestionSubmitFormRequest}
-                // id={}
+                id="displayForm"
                 className = "question-cards-wrapper-top-right">
                 <a href="">Ask a Question</a>
               </div>
