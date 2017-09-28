@@ -3,6 +3,11 @@ import React, {Component} from 'react';
 export default class QuestionForm extends Component {
   constructor(props) {
     super(props);
+    this.navigateBackRequest = this.navigateBackRequest.bind(this);
+  }
+
+  navigateBackRequest(goBack){
+    this.props.navigateBackRequest(goBack);
   }
 
   render() {
@@ -17,7 +22,7 @@ export default class QuestionForm extends Component {
             <p><textarea name = "ask-details">Question Details:</textarea></p>
             <div>
               <input type = "submit" value = "submit" className = "submit-question-btn" name = "submit-question"/>
-              <input type = "submit" value = "cancel" className = "cancel-question-btn submit-question-btn" name = "cancel-question"/>
+              <input onClick={this.navigateBackRequest} type = "submit" value = "cancel" className = "cancel-question-btn submit-question-btn" name = "cancel-question"/>
           </div>
           </form>
         </div>

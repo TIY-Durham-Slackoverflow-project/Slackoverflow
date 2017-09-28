@@ -12,12 +12,12 @@ export default class QuestionCards extends Component {
     this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
 
     this.state ={
-
       postQuestion: false
-
     }
     // this.sendDataUp = this.sendDataUp.bind(this);
   }
+
+  
 
   handleQuestionSubmitFormRequest(event){
     if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){

@@ -33,7 +33,7 @@ class App extends Component {
       displayForm: false,
       questionID: false,
       profilePage: false,
-      postQuestion: "false"
+      postQuestion: false
 
     };
   }
@@ -115,18 +115,19 @@ class App extends Component {
         }
         <Jumbotron/>
         {this.state.postQuestion ?
-          <QuestionForm/> :
-          null
-        }
+          <QuestionForm
+            navigateBackRequest={this.navigateBackRequest}/> :
         <div className="question-cards-wrapper">
-        {this.state.questionID ?
-          (<QuestionPageApp />) :
-          (<QuestionCards
-            sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
-            handleQuestionSubmitFormRequest={this.handleQuestionSubmitFormRequest}
-          />)
-        }
+          {this.state.questionID ?
+            (<QuestionPageApp />) :
+            (<QuestionCards
+              sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
+              handleQuestionSubmitFormRequest={this.handleQuestionSubmitFormRequest}
+              postQuestion={this.state.postQuestion}
+            />)
+          }
         </div>
+        }
         <Footer/>
       </div>
     );
