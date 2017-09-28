@@ -13,7 +13,7 @@ export default class QuestionCard extends Component {
   }
 
   render() {
-    // let mapper = this.props.arrayOfSix.map((mapped, index) =>{
+    // let mapper = this.props.arrayOfQuestionObjects.map((mapped, index) =>{
     // id={mapped.id} goes with onClick
       return (
         <div className="question-card-wrapper">
@@ -22,8 +22,8 @@ export default class QuestionCard extends Component {
             <div className = "question-card-icon"><img src="" alt = "icon"/></div>
             <a href = "">name here</a>
           </div>
-          <div onClick={this.sendQuestionIdUpToParent} id="single" className = "question-card-content-middle">
-            <h3>This is a question header</h3>
+          <div className = "question-card-content-middle">
+            <h3 onClick={this.sendQuestionIdUpToParent} id="single" >This is a question header</h3>
             <p>This is more info about the question...</p>
           </div>
           <div className = "question-card-content-right">
