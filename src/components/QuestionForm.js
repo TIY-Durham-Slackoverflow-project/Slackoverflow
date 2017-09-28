@@ -17,11 +17,8 @@ export default class QuestionForm extends Component {
             <p><textarea name = "ask-details">Question Details:</textarea></p>
             <p><input type = "submit" value = "submit" name = "submit-question"/></p>
           </form>
-
         </div>
-
-      </div>
-    );
+      </div>);
   }
 }
 

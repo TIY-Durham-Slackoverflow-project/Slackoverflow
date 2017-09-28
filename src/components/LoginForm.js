@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import request from superagent
+import request from 'superagent';
 
 export default class LoginForm extends Component {
   constructor(props) {
@@ -7,40 +7,45 @@ export default class LoginForm extends Component {
 
     this.state = {
       // register: false
-      loginUsername: false,
-      loginPassword: false,
-      registerUsername: false,
-      registerPassword: false,
+      username: "",
+      password: "",
       error: false,
       token: false
     }
   }
 
-  submitFormData(event) {
-
+  updateFromField(stateKey) {
+    return (event) => {
+      this.setState({[stateKey]: event.target.value});
+    }
   }
 
-  updateFromField(){
-
+  register(event){
+    event.preventDefault();
+    request
+      .post()
+      .send({username: this.state.username, password: this.state.password})
+      .end((err, res) =>{
+        if(err) {
+          this.setState({error: res.body.error});
+        }
+      })
   }
 
-  // login(event){
-  //   this.
-  //
-  //   event.preventDefault();
-  //   request
-  //     .post(url)
-  //     .send({userName: this.state.userName, password: this.state.password})
-  //     .end((err, res) =>{
-  //       if(err) {
-  //         handleError({error: res.body.error});
-  //       }else{
-  //         this.setState({token: res.body.token});
-  //         cookie.save({token: res.body.token});
-  //       }
-  //     })
-  //
-  // }
+  login(event){
+    let setToken = this.props.setToken;
+    event.preventDefault();
+    request
+      .post()
+      .send({userName: this.state.userName, password: this.state.password})
+      .end((err, res) =>{
+        if(err) {
+          this.setState({error: res.body.error});
+        }else{
+          setToken(res.body.token);
+        }
+      })
+  }
 
   handleError(){}
 
@@ -54,24 +59,25 @@ export default class LoginForm extends Component {
                 <h3>Register</h3> :
                 <h3>Login</h3>
               }
+                {this.state.error && <div className="alert">{this.state.error}</div>}
             </div>
             <div className="form-group">
               {/* <label htmlFor="username">Username</label> */}
-              <input type="text" className="form-control" id="username" placeholder="Enter username" value={this.state.username}/>
+              <input className="form-control" onChange={this.updateFromField('username')} type="text" id="username" placeholder="Enter username" value={this.state.username}/>
             </div>
             <div className="form-group">
               {/* <label htmlFor="password">Password</label> */}
-              <input
-                // onChange={this.}
-                type="text" className="form-control" id="password" placeholder="Password goes here" value={this.state.password}/>
+              <input className="form-control"
+                onChange={this.updateFromField('password')}
+                type="text" id="password" placeholder="Password goes here" value={this.state.password}/>
             </div>
 
             {this.props.display==="register" ?
               <div className="form-group">
-                <button type="submit" className="btn btn-primary">Register</button>
+                <button onClick={event => this.register(event)} type="submit" className="btn btn-primary">Register</button>
               </div> :
-              <div onClick={event => this.login(event, this.handleError)} className="form-group">
-                <button type="submit" className="btn btn-success">Login</button>
+              <div className="form-group">
+                <button onClick={event => this.login(event)} type="submit" className="btn btn-success">Login</button>
               </div>
             }
           </form>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
+import cookie from 'react-cookies';
+import request from 'superagent';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import Jumbotron from "./Jumbotron.js";
@@ -7,6 +9,7 @@ import LoginForm from "./LoginForm.js";
 import QuestionCards from './QuestionCards.js';
 import ProfilePageApp from './ProfilePageApp.js';
 import QuestionPageApp from './QuestionPageApp.js';
+import QuestionForm from '../components/QuestionForm.js';
 
 class App extends Component {
   constructor(props){
@@ -21,29 +24,28 @@ class App extends Component {
 
 
     // question cards
-    // this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
-    this.handleSingleQuestionRequest = this.handleSingleQuestionRequest.bind(this);
+    this.sendQuestionIdUpToParent = this.sendQuestionIdUpToParent.bind(this);
     this.handleSubmittedAnswerForm = this.handleSubmittedAnswerForm.bind(this);
+    this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
 
     this.state ={
       token: null,
       displayForm: false,
       questionID: false,
       profilePage: false,
-
-
+      postQuestion: false
 
     };
   }
 
-  // componentWillMount(){
-  //   this.setState({token: cookie.load})
-  // }
-  //
-  // setToken(){
-  //   this.setState({token: token});
-  //   cookie.save({'token': token});
-  // }
+  componentWillMount() {
+    this.setState({token: cookie.load('token')});
+  }
+
+  setToken(token) {
+    this.setState({token: token});
+    cookie.save('token', token);
+  }
 
   // Header--
   sendLoginFormRequestUp(value){
@@ -63,9 +65,11 @@ class App extends Component {
   }
 
   navigateBackRequest(){
-    this.setState({ questionID: false });
+    this.setState({
+      questionID: false, 
+      postQuestion: false
+    });
   }
-
 
   //------ QuestionPageApp--Single question, answers and answer form
   handleVoteChangeRequest(qOrA, plusOrMinus){
@@ -78,9 +82,14 @@ class App extends Component {
     // call fxn to post to DB
   }
 
-
   // ------QuestionCards--Main page--list of questions
-  handleSingleQuestionRequest(value){
+  // Check login => display form. Display form component. Accept data and post to
+  handleQuestionSubmitFormRequest(value){
+
+    this.setState({postQuestion: value});
+  }
+
+  sendQuestionIdUpToParent(value){
     this.setState({questionID: value});
   }
 
@@ -105,14 +114,16 @@ class App extends Component {
           null
         }
         <Jumbotron/>
+        {this.state.postQuestion ?
+          <QuestionForm/> :
+          null
+        }
         <div className="question-cards-wrapper">
         {this.state.questionID ?
           (<QuestionPageApp />) :
           (<QuestionCards
-            sendQuestionIdUpToParent={this.handleSingleQuestionRequest}
-            submitAnswerFormUp={this.handleSubmittedAnswerForm}
-            // sendQuestionUpToParent={this.handleQuestionSubmitFormRequest}
-
+            sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
+            handleQuestionSubmitFormRequest={this.handleQuestionSubmitFormRequest}
           />)
         }
         </div>
