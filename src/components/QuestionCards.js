@@ -42,10 +42,10 @@ export default class QuestionCards extends Component {
       <div>
 
         <div className="question-card-wrapper">
-            <div className = "question-cards-wrapper-top">
+            <div>
               {this.state.postQuestion ?
                 null :
-                (<div>
+                (<div className = "question-cards-wrapper-top">
                   <div className = "question-cards-wrapper-top-left">
                     <h2>all questions</h2>
                   </div>
