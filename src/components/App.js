@@ -33,7 +33,7 @@ class App extends Component {
       displayForm: false,
       questionID: false,
       profilePage: false,
-      postQuestion: false
+      postQuestion: "false"
 
     };
   }
@@ -66,7 +66,7 @@ class App extends Component {
 
   navigateBackRequest(){
     this.setState({
-      questionID: false, 
+      questionID: false,
       postQuestion: false
     });
   }

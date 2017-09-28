@@ -31,6 +31,7 @@ export default class Header extends Component {
           </div>
         </div>
         <div onClick={this.sendLoginFormRequestUp} className = "header-right">
+          <a id = "go-home" className = "go-home-btn login-btn">Home</a>
           <a id="login" className = "login-btn">Login</a>
           <a id="register" className = "register-btn">Register</a>
         </div>

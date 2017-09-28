@@ -13,12 +13,16 @@ export default class QuestionForm extends Component {
         </div>
         <div className = "ask-question-page-form-wrapper">
           <form className = "ask-question-form">
-            <p><input type = "text" name = "ask-title" placeholder="Title"/></p>
+            <p><input className = "form-title-input" type = "text" name = "ask-title" placeholder="Title" autoFocus/></p>
             <p><textarea name = "ask-details">Question Details:</textarea></p>
-            <p><input type = "submit" value = "submit" name = "submit-question"/></p>
+            <div>
+              <input type = "submit" value = "submit" className = "submit-question-btn" name = "submit-question"/>
+              <input type = "submit" value = "cancel" className = "cancel-question-btn submit-question-btn" name = "cancel-question"/>
+          </div>
           </form>
         </div>
-      </div>);
+      </div>
+    );
   }
 }
 
