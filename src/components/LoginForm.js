@@ -7,31 +7,29 @@ export default class LoginForm extends Component {
 
     this.state = {
       // register: false
-      loginUsername: false,
-      loginPassword: false,
-      registerUsername: false,
-      registerPassword: false,
+      username: false,
+      password: false,
       error: false,
       token: false
     }
   }
 
-  submitFormData(event) {
-
+  updateFromField(stateKey) {
+    return (event) => {
+      this.setState({[stateKey]: event.target.value});
+    }
   }
 
-  updateFromField(stateKey) {
-    if(this.props.display==="register"){
-      let targetStateKey = this.props.display + stateKey;
-      return (event) => {
-        this.setState({[targetStateKey]: event.target.value});
-      }
-    }else{
-      let targetStateKey = 'login' + stateKey;
-      return (event) => {
-        this.setState({[targetStateKey]: event.target.value});
-      }
-    }
+  register(event){
+    event.preventDefault();
+    request
+      .post(url)
+      .send({username: this.state.username, password: this.state.password})
+      .end((err, res) =>{
+        if(err) {
+          handleError({error: res.body.error});
+        }
+      })
   }
 
   login(event){
@@ -44,7 +42,7 @@ export default class LoginForm extends Component {
         if(err) {
           handleError({error: res.body.error});
         }else{
-          this.setState({token: res.body.token});
+          setToken(res.body.token);
         }
       })
   }
@@ -76,7 +74,7 @@ export default class LoginForm extends Component {
 
             {this.props.display==="register" ?
               <div className="form-group">
-                <button type="submit" className="btn btn-primary">Register</button>
+                <button onClick={event => this.register(event)} type="submit" className="btn btn-primary">Register</button>
               </div> :
               <div className="form-group">
                 <button onClick={event => this.login(event)} type="submit" className="btn btn-success">Login</button>

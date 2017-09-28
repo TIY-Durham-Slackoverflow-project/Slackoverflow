@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
+import cookie from 'react-cookies';
+import request from 'superagent';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import Jumbotron from "./Jumbotron.js";
@@ -36,14 +38,14 @@ class App extends Component {
     };
   }
 
-  // componentWillMount(){
-  //   this.setState({token: cookie.load})
-  // }
-  //
-  // setToken(){
-  //   this.setState({token: token});
-  //   cookie.save({'token': token});
-  // }
+  componentWillMount() {
+    this.setState({token: cookie.load('token')});
+  }
+
+  setToken(token) {
+    this.setState({token: token});
+    cookie.save('token', token);
+  }
 
   // Header--
   sendLoginFormRequestUp(value){
