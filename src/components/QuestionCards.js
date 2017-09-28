@@ -3,6 +3,7 @@ import QuestionCard from '../components/QuestionCard.js';
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
 import request from 'superagent';
+import superagentJsonapify from 'superagent-jsonapify';
 // import fs from 'react-fs';
 // import '../MOCK_DATA.json';
 
@@ -32,15 +33,21 @@ export default class QuestionCards extends Component {
   }
 
   fetchSomeShit(){
+    // superagentJsonapify(request);
     request
-      .get('../public/MOCK_DATA.json')
+      // .get(process.env.PUBLIC_URL + '/MOCK_DATA.json')
+      .get('https://murmuring-fjord-57185.herokuapp.com/api/questions')
       // .query({ action: 'edit', city: 'London' }) // query string
       // .use(prefix) // Prefixes *only* this request
       // .use(nocache) // Prevents caching of *only* this request
       .end((err, res) => {
-        console.log(res);
-        // let mockData = res.results;
-        this.setState({mockData: res});
+        // if(err) {
+        //   this.setState({error: res.body.error});
+        // }
+        // console.log(err);
+        console.log(res.text.questions);
+        let mockData = res.text.questions;
+        this.setState({mockData: mockData});
       });
   }
 
@@ -69,9 +76,9 @@ export default class QuestionCards extends Component {
                 </div>)
               }
             </div>
-            {/* <QuestionCard sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
+            <QuestionCard sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
               arrayOfQuestionObjects={this.state.mockData}
-            /> */}
+            />
           </div>
       </div>
     );
