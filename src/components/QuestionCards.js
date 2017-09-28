@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import QuestionCard from '../components/QuestionCard.js';
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
-// import AnswerCard from '../components/AnswerCard.js';
-
+import request from 'superagent';
+import superagentJsonapify from 'superagent-jsonapify';
+// import fs from 'react-fs';
+// import '../MOCK_DATA.json';
 
 export default class QuestionCards extends Component {
   constructor(props) {
@@ -12,12 +14,12 @@ export default class QuestionCards extends Component {
     this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
 
     this.state ={
-      postQuestion: false
+      postQuestion: false,
+      mockData: null
     }
     // this.sendDataUp = this.sendDataUp.bind(this);
   }
 
-  
 
   handleQuestionSubmitFormRequest(event){
     if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
@@ -30,12 +32,29 @@ export default class QuestionCards extends Component {
     this.props.sendQuestionIdUpToParent(e);
   }
 
-  submitQuestionToDatabase(){
-    // post
-    // this.setState({postQuestion: false})
+  fetchSomeShit(){
+    // superagentJsonapify(request);
+    request
+      // .get(process.env.PUBLIC_URL + '/MOCK_DATA.json')
+      .get('https://murmuring-fjord-57185.herokuapp.com/api/questions')
+      // .query({ action: 'edit', city: 'London' }) // query string
+      // .use(prefix) // Prefixes *only* this request
+      // .use(nocache) // Prevents caching of *only* this request
+      .end((err, res) => {
+        // if(err) {
+        //   this.setState({error: res.body.error});
+        // }
+        // console.log(err);
+        console.log(res.text.questions);
+        let mockData = res.text.questions;
+        this.setState({mockData: mockData});
+      });
   }
 
-  // fetchSomeShit(){}
+  componentWillMount(){
+    this.fetchSomeShit();
+
+  }
 
   render() {
     return (
@@ -58,7 +77,7 @@ export default class QuestionCards extends Component {
               }
             </div>
             <QuestionCard sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
-              // arrayOfQuestionObjects={this.??}
+              arrayOfQuestionObjects={this.state.mockData}
             />
           </div>
       </div>
