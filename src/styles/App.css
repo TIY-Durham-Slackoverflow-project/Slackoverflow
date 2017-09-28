@@ -368,9 +368,6 @@ table{
   color:  #4D384B;
 }
 
-#answerForm {
-  padding-top: 20px;
-}
 
 .answerSubmit{
   border: solid 1px #4D384B;
@@ -396,6 +393,8 @@ table{
 
 .ask-question-page-wrapper{
   height: 40vh;
+  width: 85vw;
+  margin: 0 auto;
 }
 
 .ask-question-page-header{
