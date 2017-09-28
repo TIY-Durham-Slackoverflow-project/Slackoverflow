@@ -28,13 +28,13 @@ export default class SingleQuestion extends Component{
         <div className = "question-title-header">
           <div className = "question-cards-wrapper-top">
             <div className = "question-cards-wrapper-top-left">
-              <h1>question title goes here</h1>
+              <h1>{this.props.questionData.title}</h1>
             </div>
           </div>
         </div>
         <div className = "single-question-body">
           <div className = "single-question-body-left">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>{this.props.questionData.body}</p>
             <code>console.log("Hello World")</code>
             <p>Blah blah blah words about code answers</p>
           </div>
@@ -47,9 +47,9 @@ export default class SingleQuestion extends Component{
                 <th>Votes</th>
               </tr>
               <tr>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
+                <td>{this.props.questionData.answers_num}</td>
+                <td>{this.props.questionData.views}</td>
+                <td>{this.props.questionData.votes}</td>
               </tr>
             </tbody>
             </table>
@@ -64,7 +64,7 @@ export default class SingleQuestion extends Component{
         <div className = "single-question-body-bottom">
           <div className = "user-class">
             <img src = "" alt ="avatar"/>
-            <p>Asked by NAME on DATE</p>
+            <p>Created at: {this.props.questionData.created_at}</p>
           </div>
           <div className = 'vote-btns'>
             <input type = "submit" value = "&#9650; Upvote" className = "upvote-btn vote-btn"/>

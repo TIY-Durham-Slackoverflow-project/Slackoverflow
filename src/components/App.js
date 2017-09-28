@@ -18,10 +18,6 @@ class App extends Component {
     // header
     this.sendLoginFormRequestUp = this.sendLoginFormRequestUp.bind(this);
     this.navigateBackRequest = this.navigateBackRequest.bind(this);
-    this.submitLoginData = this.submitLoginData.bind(this);
-    this.submitRegisterData = this.submitRegisterData.bind(this);
-
-
 
     // question cards
     this.sendQuestionIdUpToParent = this.sendQuestionIdUpToParent.bind(this);
@@ -34,7 +30,7 @@ class App extends Component {
       token: null,
       displayForm: false,
       questionID: false,
-      profilePage: 'false',
+      profilePage: false,
       postQuestion: false
 
     };
@@ -56,14 +52,6 @@ class App extends Component {
     }else{
       this.setState({ displayForm: value });
     }
-  }
-
-  submitLoginData(){
-    // (post) check user data against DB. Returns with token. Put into cookie.
-  }
-
-  submitRegisterData(){
-    // (post) new user data
   }
 
   navigateBackRequest(){
@@ -110,8 +98,6 @@ class App extends Component {
         {this.state.displayForm ?
           <LoginForm
             display={this.state.displayForm}
-            submitLoginData={this.submitLoginData}
-            submitRegisterData={this.submitRegisterData}
           /> :
           null
         }
@@ -126,7 +112,9 @@ class App extends Component {
               navigateBackRequest={this.navigateBackRequest}/> :
           <div className="question-cards-wrapper">
             {this.state.questionID ?
-              (<QuestionPageApp />) :
+              (<QuestionPageApp
+                questionID={this.state.questionID}
+              />) :
               (<QuestionCards
                 sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
                 handleQuestionSubmitFormRequest={this.handleQuestionSubmitFormRequest}

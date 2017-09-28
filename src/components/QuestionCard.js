@@ -19,10 +19,12 @@ export default class QuestionCard extends Component {
       this.props.showProfilePage(event.target.id);
     }  }
 
+  handleVoteChangeRequest(qOrA, plusOrMinus){
+    // one vote per Q or A per user? -- break into two fxns?
+  }
+
   render() {
-
     console.log(this.props.arrayOfQuestionObjects);
-
     let mapper = this.props.arrayOfQuestionObjects.map((mapped, index) =>{
       if(index<100){
         return (
@@ -45,7 +47,7 @@ export default class QuestionCard extends Component {
                 </tr>
                 <tr>
                   <td>{mapped.votes}</td>
-                  <td>0</td>
+                  <td>{mapped.answers_num}</td>
                 </tr>
               </tbody>
               </table>

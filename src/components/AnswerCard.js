@@ -4,6 +4,13 @@ export default class AnswerCard extends Component {
   constructor(props){
     super(props);
   }
+
+
+  handleVoteChangeRequest(qOrA, plusOrMinus){
+    // one vote per Q or A per user? -- break into two fxns?
+  }
+
+// this.props.answerData
   render(){
     return(
       <div>

@@ -18,9 +18,7 @@ export default class QuestionCards extends Component {
       postQuestion: false,
       mockData: null
     }
-    // this.sendDataUp = this.sendDataUp.bind(this);
   }
-
 
   handleQuestionSubmitFormRequest(event){
     if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
@@ -35,6 +33,10 @@ export default class QuestionCards extends Component {
 
   showProfilePage(e){
     this.props.showProfilePage(e);
+  }
+
+  componentWillMount(){
+    this.fetchSomeShit();
   }
 
   fetchSomeShit(){
@@ -57,11 +59,6 @@ export default class QuestionCards extends Component {
       });
   }
 
-  componentWillMount(){
-    this.fetchSomeShit();
-  }
-
-  // componentDidUpdate(){
     render() {
       return (
         <div>
