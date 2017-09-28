@@ -32,7 +32,7 @@ class App extends Component {
       token: null,
       displayForm: false,
       questionID: false,
-      profilePage: false,
+      profilePage: "false",
       postQuestion: false
 
     };
@@ -114,6 +114,8 @@ class App extends Component {
           null
         }
         <Jumbotron/>
+        {this.state.profilePage ?
+        <ProfilePageApp /> : null }
         {this.state.postQuestion ?
           <QuestionForm
             navigateBackRequest={this.navigateBackRequest}/> :
