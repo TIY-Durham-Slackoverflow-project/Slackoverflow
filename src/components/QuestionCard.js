@@ -4,6 +4,8 @@ export default class QuestionCard extends Component {
   constructor(props) {
     super(props);
     this.sendQuestionIdUpToParent = this.sendQuestionIdUpToParent.bind(this);
+    this.showProfilePage = this.showProfilePage.bind(this);
+
   }
 
   sendQuestionIdUpToParent(event){
@@ -12,6 +14,11 @@ export default class QuestionCard extends Component {
     }
   }
 
+  showProfilePage(event){
+    if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
+      this.props.showProfilePage(event.target.id);
+    }  }
+
   render() {
 
     console.log(this.props.arrayOfQuestionObjects);
@@ -19,10 +26,10 @@ export default class QuestionCard extends Component {
     let mapper = this.props.arrayOfQuestionObjects.map((mapped, index) =>{
       if(index<100){
         return (
-          <div className="question-card-wrapper">
+          < div key={mapped.id} className="question-card-wrapper">
             <div className = "question-card-content-top">
             <div className = "question-card-content-left">
-              <div className = "question-card-icon"><img src={mapped.questionUserPhoto} alt = "icon"/></div>
+              <div onClick={this.showProfilePage} id={mapped.user.id} className = "question-card-icon"><img src={mapped.avatar} alt = "icon"/></div>
               <a>{mapped.questionUserName}</a>
             </div>
             <div className = "question-card-content-middle">

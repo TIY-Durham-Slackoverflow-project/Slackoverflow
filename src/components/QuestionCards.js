@@ -12,6 +12,7 @@ export default class QuestionCards extends Component {
     super(props);
     this.sendQuestionIdUpToParent = this.sendQuestionIdUpToParent.bind(this);
     this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
+    this.showProfilePage = this.showProfilePage.bind(this);
 
     this.state ={
       postQuestion: false,
@@ -30,6 +31,10 @@ export default class QuestionCards extends Component {
 
   sendQuestionIdUpToParent(e){
     this.props.sendQuestionIdUpToParent(e);
+  }
+
+  showProfilePage(e){
+    this.props.showProfilePage(e);
   }
 
   fetchSomeShit(){
@@ -54,7 +59,6 @@ export default class QuestionCards extends Component {
 
   componentWillMount(){
     this.fetchSomeShit();
-
   }
 
   // componentDidUpdate(){
@@ -79,7 +83,9 @@ export default class QuestionCards extends Component {
                 }
               </div>
               {this.state.mockData ?
-                <QuestionCard sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
+                <QuestionCard
+                  sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
+                  showProfilePage={this.showProfilePage}
                   arrayOfQuestionObjects={this.state.mockData}
                 /> :
                 null

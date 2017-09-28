@@ -27,12 +27,14 @@ class App extends Component {
     this.sendQuestionIdUpToParent = this.sendQuestionIdUpToParent.bind(this);
     this.handleSubmittedAnswerForm = this.handleSubmittedAnswerForm.bind(this);
     this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
+    this.showProfilePage = this.showProfilePage.bind(this);
+
 
     this.state ={
       token: null,
       displayForm: false,
       questionID: false,
-      profilePage: "false",
+      profilePage: 'false',
       postQuestion: false
 
     };
@@ -93,7 +95,7 @@ class App extends Component {
     this.setState({questionID: value});
   }
 
-  handleIncomingProfilePage(value){
+  showProfilePage(value){
     this.setState({profilePage: value});
   }
 
@@ -115,20 +117,27 @@ class App extends Component {
         }
         <Jumbotron/>
         {this.state.profilePage ?
-        <ProfilePageApp /> : null }
-        {this.state.postQuestion ?
-          <QuestionForm
-            navigateBackRequest={this.navigateBackRequest}/> :
-        <div className="question-cards-wrapper">
-          {this.state.questionID ?
-            (<QuestionPageApp />) :
-            (<QuestionCards
-              sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
-              handleQuestionSubmitFormRequest={this.handleQuestionSubmitFormRequest}
-              postQuestion={this.state.postQuestion}
-            />)
+          <ProfilePageApp
+            profileFor={this.state.profilePage}
+          /> :
+          (<div>
+            {this.state.postQuestion ?
+            <QuestionForm
+              navigateBackRequest={this.navigateBackRequest}/> :
+          <div className="question-cards-wrapper">
+            {this.state.questionID ?
+              (<QuestionPageApp />) :
+              (<QuestionCards
+                sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
+                handleQuestionSubmitFormRequest={this.handleQuestionSubmitFormRequest}
+                showProfilePage={this.showProfilePage}
+                postQuestion={this.state.postQuestion}
+              />)
+            }
+
+          </div>
           }
-        </div>
+        </div>)
         }
         <Footer/>
       </div>
