@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import QuestionCard from '../components/QuestionCard.js';
 import Header from '../components/Header.js';
 import Footer from '../components/Footer.js';
-// import AnswerCard from '../components/AnswerCard.js';
-
+import request from 'superagent';
+// import fs from 'react-fs';
+// import '../MOCK_DATA.json';
 
 export default class QuestionCards extends Component {
   constructor(props) {
@@ -12,12 +13,12 @@ export default class QuestionCards extends Component {
     this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
 
     this.state ={
-      postQuestion: false
+      postQuestion: false,
+      mockData: null
     }
     // this.sendDataUp = this.sendDataUp.bind(this);
   }
 
-  
 
   handleQuestionSubmitFormRequest(event){
     if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
@@ -30,12 +31,23 @@ export default class QuestionCards extends Component {
     this.props.sendQuestionIdUpToParent(e);
   }
 
-  submitQuestionToDatabase(){
-    // post
-    // this.setState({postQuestion: false})
+  fetchSomeShit(){
+    request
+      .get('../public/MOCK_DATA.json')
+      // .query({ action: 'edit', city: 'London' }) // query string
+      // .use(prefix) // Prefixes *only* this request
+      // .use(nocache) // Prevents caching of *only* this request
+      .end((err, res) => {
+        console.log(res);
+        // let mockData = res.results;
+        this.setState({mockData: res});
+      });
   }
 
-  // fetchSomeShit(){}
+  componentWillMount(){
+    this.fetchSomeShit();
+
+  }
 
   render() {
     return (
@@ -57,9 +69,9 @@ export default class QuestionCards extends Component {
                 </div>)
               }
             </div>
-            <QuestionCard sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
-              // arrayOfQuestionObjects={this.??}
-            />
+            {/* <QuestionCard sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
+              arrayOfQuestionObjects={this.state.mockData}
+            /> */}
           </div>
       </div>
     );
