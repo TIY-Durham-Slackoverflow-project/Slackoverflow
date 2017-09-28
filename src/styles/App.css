@@ -52,6 +52,7 @@ h1{
 
 .login-btn:hover{
   color:#4C9689;
+  cursor: pointer;
 }
 
 .header-left img.app-logo {
@@ -74,9 +75,17 @@ h1{
 .register-btn:hover{
   color: white;
   background-color: #DF1463;
+  cursor: pointer;
 }
 
 /*Login Form styles*/
+
+#username, #password{
+  border: solid 1px #4D384B;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color:  #4D384B;
+}
 
 .form-wrapper{
   display: flex;
@@ -86,8 +95,9 @@ h1{
 .login-form{
   margin-top: 80px;
   background-color: #ffffff;
-  width: 300px;
+  width: 250px;
   height: 200px;
+  color:#4D384B;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -95,6 +105,11 @@ h1{
   position: fixed;
   text-align: center;
   z-index: 5;
+  font-family: "Work Sans", sans-serif;
+}
+
+.login-form h3{
+  font-size: 20px;
 }
 
 .form-group{
@@ -127,14 +142,11 @@ h1{
   height: 40vh;
   width: 100vw;
   margin-top: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-image: url('slackgrid.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  font-family: 'Work Sans', sans-serif;
+  background-attachment: fixed;
   border-top: solid .5px black;
 }
 
@@ -151,7 +163,6 @@ h1{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: solid 5px #4D384B;
   margin-top: 15px;
 }
 
@@ -333,7 +344,6 @@ table{
 .answer-header-left{
   font-family: 'Work Sans', sans-serif;
    color: #4D384B;
-   border-bottom: solid 5px #4D384B;
 }
 
 .answer-title-header{
@@ -345,7 +355,6 @@ table{
 }
 
 .answer-form-header{
-  border-bottom: solid 5px #4D384B;
   margin-top: 80px;
   font-family: 'Work Sans', sans-serif;
 }
@@ -395,11 +404,44 @@ table{
   font-size: 20px;
 }
 
-.ask-question-form textarea{
-  width: 60vw;
-  height: 20vh;
-}
+
 
 .ask-question-form button{
   width: 80%;
+}
+
+
+.ask-question-page-wrapper textarea{
+  width: 60vw;
+  height: 20vh;
+  border: solid 1px #4D384B;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color:  #4D384B;
+}
+
+.form-title-input {
+  width: 40vw;
+  border: solid 1px #4D384B;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color:  #4D384B;
+}
+
+.submit-question-btn{
+  border: solid 1px #4D384B;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background-color: transparent;
+  color:  #4D384B;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+.submit-question-btn:hover{
+  background-color: #DF1463;
+  color: white;
+  border: solid 1px white;
+  cursor: pointer;
 }

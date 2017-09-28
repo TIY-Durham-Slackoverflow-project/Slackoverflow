@@ -57,13 +57,13 @@ export default class LoginForm extends Component {
             </div>
             <div className="form-group">
               {/* <label htmlFor="username">Username</label> */}
-              <input type="text" className="form-control" id="username" placeholder="Enter username" value={this.state.username}/>
+              <input type="text" className="form-control" id="username" placeholder="Username:" value={this.state.username}/>
             </div>
             <div className="form-group">
               {/* <label htmlFor="password">Password</label> */}
               <input
                 // onChange={this.}
-                type="text" className="form-control" id="password" placeholder="Password goes here" value={this.state.password}/>
+                type="text" className="form-control" id="password" placeholder="Password:" value={this.state.password}/>
             </div>
 
             {this.props.display==="register" ?

@@ -28,7 +28,7 @@ class App extends Component {
     this.state ={
       token: null,
       displayForm: false,
-      questionID: false,
+      questionID: "false",
       profilePage: false,
 
 
