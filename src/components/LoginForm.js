@@ -7,8 +7,8 @@ export default class LoginForm extends Component {
 
     this.state = {
       // register: false
-      username: false,
-      password: false,
+      username: "",
+      password: "",
       error: false,
       token: false
     }
@@ -23,11 +23,11 @@ export default class LoginForm extends Component {
   register(event){
     event.preventDefault();
     request
-      .post(url)
+      .post()
       .send({username: this.state.username, password: this.state.password})
       .end((err, res) =>{
         if(err) {
-          handleError({error: res.body.error});
+          this.setState({error: res.body.error});
         }
       })
   }
@@ -36,11 +36,11 @@ export default class LoginForm extends Component {
     let setToken = this.props.setToken;
     event.preventDefault();
     request
-      .post(url)
+      .post()
       .send({userName: this.state.userName, password: this.state.password})
       .end((err, res) =>{
         if(err) {
-          handleError({error: res.body.error});
+          this.setState({error: res.body.error});
         }else{
           setToken(res.body.token);
         }
@@ -63,12 +63,12 @@ export default class LoginForm extends Component {
             </div>
             <div className="form-group">
               {/* <label htmlFor="username">Username</label> */}
-              <input className="form-control" onChange={this.updateFromField('Username')} type="text" id="username" placeholder="Enter username" value={this.state.username}/>
+              <input className="form-control" onChange={this.updateFromField('username')} type="text" id="username" placeholder="Enter username" value={this.state.username}/>
             </div>
             <div className="form-group">
               {/* <label htmlFor="password">Password</label> */}
               <input className="form-control"
-                onChange={this.updateFromField('Password')}
+                onChange={this.updateFromField('password')}
                 type="text" id="password" placeholder="Password goes here" value={this.state.password}/>
             </div>
 
