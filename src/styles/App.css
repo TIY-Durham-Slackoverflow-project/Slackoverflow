@@ -184,6 +184,7 @@ h1{
   background-color: #DF1463;
   color: white;
   border: none;
+  cursor: pointer;
 }
 
 
@@ -193,7 +194,9 @@ h1{
   justify-content: space-between;
   align-items: center;
   font-family: 'Open Sans', sans-serif;
-  padding: 25px 10px;
+  padding: 35px 10px;
+  border-top: solid .5px #4C9689;
+
 }
 
 .question-card-icon {
@@ -212,6 +215,15 @@ h1{
 .question-card-content-left a:hover{
   font-weight: bold;
   color: #DF1463;
+  cursor: pointer;
+}
+
+.question-card-content-left{
+  width: 70%;
+}
+
+.question-card-content-right{
+  width: 30%;
 }
 
 .question-tags li{
@@ -243,27 +255,18 @@ h1{
 th, td{
   padding:3px 10px;
   text-align: center;
+  width: 33.33%
 }
 
 
 
-.question-card-content-bottom{
+
+
+.question-card-content-bottom-left{
   display: flex;
-  justify-content: space-between;
-  font-family: 'Open Sans', sans-serif;
-  padding: 5px 10px;
+  align-items: center;
 }
 
-.question-card-content-bottom p{
-  margin: 0;
-  font-size: 15px;
-  color: #DF1463;
-
-}
-
-.question-card-wrapper{
-  border-bottom: 1px solid black;
-}
 
 /*footer styles*/
 .footer-wrapper{
@@ -275,7 +278,7 @@ th, td{
   background-color: #4D384B;
   color: white;
   border-bottom: solid 5px #4C9689;
-
+  margin-top: 10vh;
 }
 
 .footer-wrapper h3{
@@ -331,15 +334,56 @@ table{
 .single-question-body-bottom{
   display: flex;
   align-items: center;
+  justify-content: space-between;
   font-family: "Open Sans", sans-serif;
+  padding-bottom: 65px;
+  border-bottom: solid .5px #4C9689;
 }
 
-.single-question-body-bottom img{
+.user-class{
+  display: flex;
+  justify-content: space-between;
+  color: #DF1463;
+  align-items: center;
+  padding-left: 8px;
+}
+
+.user-class p{
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+
+.user-class img{
   width: 50px;
   height: 50px;
   border: solid 1px black;
   margin-right: 15px;
 }
+
+.vote-btns input{
+  background-color: transparent;
+  border: solid 1px #4D384B;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 17px;
+  width: 45%;
+}
+
+.vote-btns input:hover{
+  cursor: pointer;
+  background-color: #DF1463;
+  border: none;
+  color: white;
+}
+
+.vote-btns{
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+}
+
+
 
 .answer-header-left{
   font-family: 'Work Sans', sans-serif;
@@ -408,6 +452,8 @@ table{
 .ask-question-form button{
   width: 80%;
 }
+
+
 
 
 .ask-question-page-wrapper textarea{
