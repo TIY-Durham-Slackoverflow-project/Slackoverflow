@@ -514,3 +514,32 @@ li:hover{
   opacity: .7;
   cursor: pointer;
 }
+
+/* user profile page */
+.user-wrapper{
+  width: 65vw;
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.user-right{
+  width: 60%;
+  font-family: "Open Sans", sans-serif;
+
+}
+
+.user-right h2{
+  font-family: "Work Sans", sans-serif;
+  color:  #4D384B;
+}
+
+.large-avatar{
+  width: 200px;
+  height: 200px;
+  border: solid 1px grey;
+  border-radius: 50%;
+  margin-top: 20px;
+}
