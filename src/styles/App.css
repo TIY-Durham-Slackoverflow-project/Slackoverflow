@@ -188,7 +188,14 @@ h1{
   cursor: pointer;
 }
 
+.ques-content-wrapper p{
+  white-space: nowrap;
+  overflow: hidden;
+}
 
+.ques-content-wrapper p{
+  text-overflow: ellipsis;
+}
 
 .question-card-content-top{
   display: flex;
@@ -240,10 +247,17 @@ h1{
 .question-card-content-middle{
   width:68%;
   margin-right: 2%;
+  height: 30.5vh;
 }
 
 .question-card-content-middle p, .question-card-content-middle h3{
   margin: 0;
+}
+
+.all-question-user{
+  padding-top: 30px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .question-card-content-middle h3{
@@ -348,7 +362,6 @@ table{
 
 .user-class{
   display: flex;
-  justify-content: space-between;
   color: #DF1463;
   align-items: center;
   padding-left: 8px;
@@ -500,4 +513,33 @@ table{
 li:hover{
   opacity: .7;
   cursor: pointer;
+}
+
+/* user profile page */
+.user-wrapper{
+  width: 65vw;
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.user-right{
+  width: 60%;
+  font-family: "Open Sans", sans-serif;
+
+}
+
+.user-right h2{
+  font-family: "Work Sans", sans-serif;
+  color:  #4D384B;
+}
+
+.large-avatar{
+  width: 200px;
+  height: 200px;
+  border: solid 1px grey;
+  border-radius: 50%;
+  margin-top: 20px;
 }
