@@ -21,8 +21,8 @@ export default class QuestionForm extends Component {
             <p><input className = "form-title-input" type = "text" name = "ask-title" placeholder="Title" autoFocus/></p>
             <p><textarea name = "ask-details">Question Details:</textarea></p>
             <div>
-              <input type = "submit" value = "submit" className = "submit-question-btn" name = "submit-question"/>
-              <input onClick={this.navigateBackRequest} type = "submit" value = "cancel" className = "cancel-question-btn submit-question-btn" name = "cancel-question"/>
+              <input type = "submit" value = "Submit" className = "submit-question-btn" name = "submit-question"/>
+              <input onClick={this.navigateBackRequest} type = "submit" value = "Cancel" className = "cancel-question-btn submit-question-btn" name = "cancel-question"/>
           </div>
           </form>
         </div>

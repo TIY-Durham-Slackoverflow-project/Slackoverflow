@@ -23,6 +23,7 @@ h1{
   width: 100%;
   top:0;
   position: fixed;
+
 }
 
 .header-wrapper h3{
@@ -58,7 +59,7 @@ h1{
 .header-left img.app-logo {
   margin: 5px 15px 5px 0;
   width: auto;
-  height: 65px;
+  height: 55px;
 }
 
 .login-btn{
@@ -236,6 +237,11 @@ h1{
   background-color: #B5E2E8;
 }
 
+.question-card-content-middle{
+  width:68%;
+  margin-right: 2%;
+}
+
 .question-card-content-middle p, .question-card-content-middle h3{
   margin: 0;
 }
@@ -291,7 +297,7 @@ th, td{
 .footer-wrapper img.app-logo {
   margin: 5px 15px 5px 0;
   width: auto;
-  height: 50px;
+  height: 45px;
 }
 
 /* single question page */
@@ -488,5 +494,10 @@ table{
   background-color: #DF1463;
   color: white;
   border: solid 1px white;
+  cursor: pointer;
+}
+
+li:hover{
+  opacity: .7;
   cursor: pointer;
 }
