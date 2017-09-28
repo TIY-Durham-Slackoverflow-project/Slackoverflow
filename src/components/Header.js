@@ -23,17 +23,17 @@ export default class Header extends Component {
     return (
       <div className = "header-wrapper">
         <div className = "header-left">
-          <div onClick={this.navigateBackRequest} className = "slack-logo">
+          <div className = "slack-logo">
             <img src={logo} className="app-logo" alt="logo" />
           </div>
           <div className = "slack-title>">
             <h3>slackoverflow</h3>
           </div>
         </div>
-        <div onClick={this.sendLoginFormRequestUp} className = "header-right">
-          <a id = "go-home" className = "go-home-btn login-btn">Home</a>
-          <a id="login" className = "login-btn">Login</a>
-          <a id="register" className = "register-btn">Register</a>
+        <div className = "header-right">
+          <a onClick={this.navigateBackRequest} id = "go-home" className = "go-home-btn login-btn">Home</a>
+          <a onClick={this.sendLoginFormRequestUp} id="login" className = "login-btn">Login</a>
+          <a onClick={this.sendLoginFormRequestUp} id="register" className = "register-btn">Register</a>
         </div>
         {/* <LoginForm/> */}
       </div>
