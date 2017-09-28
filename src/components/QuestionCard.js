@@ -13,6 +13,7 @@ export default class QuestionCard extends Component {
   }
 
   render() {
+
     console.log(this.props.arrayOfQuestionObjects);
 
     let mapper = this.props.arrayOfQuestionObjects.map((mapped, index) =>{
