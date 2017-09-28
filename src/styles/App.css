@@ -184,6 +184,7 @@ h1{
   background-color: #DF1463;
   color: white;
   border: none;
+  cursor: pointer;
 }
 
 
@@ -212,6 +213,7 @@ h1{
 .question-card-content-left a:hover{
   font-weight: bold;
   color: #DF1463;
+  cursor: pointer;
 }
 
 .question-tags li{
@@ -275,7 +277,7 @@ th, td{
   background-color: #4D384B;
   color: white;
   border-bottom: solid 5px #4C9689;
-
+  margin-top: 10vh;
 }
 
 .footer-wrapper h3{
@@ -331,7 +333,36 @@ table{
 .single-question-body-bottom{
   display: flex;
   align-items: center;
+  justify-content: space-between;
   font-family: "Open Sans", sans-serif;
+}
+
+.user-class{
+  display: flex;
+  justify-content: space-between;
+}
+
+.vote-btns input{
+  background-color: transparent;
+  border: solid 1px #4D384B;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 17px;
+  width: 125px;
+}
+
+.vote-btns input:hover{
+  cursor: pointer;
+  background-color: #DF1463;
+  border: none;
+  color: white;
+}
+
+.vote-btns{
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .single-question-body-bottom img{
@@ -408,6 +439,8 @@ table{
 .ask-question-form button{
   width: 80%;
 }
+
+
 
 
 .ask-question-page-wrapper textarea{
