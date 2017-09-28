@@ -24,7 +24,7 @@ export default class QuestionCard extends Component {
 
 Donec dictum volutpat mi in posuere. Aenean eu enim lectus. Donec mollis lectus purus, eu efficitur nunc cursus vel. Nulla id eros egestas tortor pellentesque rutrum. Duis consectetur, nunc vitae hendrerit tempus, erat velit faucibus velit, non posuere urna eros a enim. Nam lobortis neque ut dignissim convallis. Vivamus augue tellus, faucibus non nulla ac, feugiat pretium ligula. Nam viverra ligula in enim viverra ultricies.</p>
           </div>
-          <div className = "question-card-content-right">
+          <div className = "single-question-body-right">
             <table>
               <tbody>
               <tr>
@@ -39,6 +39,11 @@ Donec dictum volutpat mi in posuere. Aenean eu enim lectus. Donec mollis lectus 
               </tr>
             </tbody>
             </table>
+            <ul className = "question-tags-list">
+              <li>javascript</li>
+              <li>react</li>
+              <li>css</li>
+            </ul>
           </div>
         </div>
           <div className = "question-card-content-bottom">
