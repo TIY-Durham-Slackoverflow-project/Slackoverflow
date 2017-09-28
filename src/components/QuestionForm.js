@@ -52,8 +52,10 @@ export default class QuestionForm extends Component {
             <p><input onChange={this.updateFromField('title')} className = "form-title-input" type = "text" name = "ask-title" placeholder="Title" autoFocus/></p>
             <p><textarea onChange={this.updateFromField('textarea')} name = "ask-details">Question Details:</textarea></p>
             <div>
+
               <input onClick={event => this.submitQuestionToDatabase(event)} type = "submit" value = "submit" className = "submit-question-btn" name = "submit-question"/>
               <input onClick={this.navigateBackRequest} type = "submit" value = "cancel" className = "cancel-question-btn submit-question-btn" name = "cancel-question"/>
+
           </div>
           </form>
         </div>

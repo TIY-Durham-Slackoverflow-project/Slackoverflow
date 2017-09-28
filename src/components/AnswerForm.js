@@ -11,7 +11,7 @@ export default class AnswerForm extends Component {
           <h2>answer this question</h2>
         </div>
         <form id = "answerForm">
-          <p><textarea name = "answerBody" form ="answerForm" className = "answerBody" /></p>
+          <p><textarea name = "answerBody" form ="answerForm" className = "answerBody" autoFocus/></p>
           <p><input type = "submit" value = "submit" className = "answerSubmit"/></p>
         </form>
       </div>

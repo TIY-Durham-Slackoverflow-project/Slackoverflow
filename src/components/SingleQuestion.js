@@ -62,8 +62,14 @@ export default class SingleQuestion extends Component{
 
         </div>
         <div className = "single-question-body-bottom">
-          <img src = "" alt ="avatar"/>
-          <p>Asked by NAME on DATE</p>
+          <div className = "user-class">
+            <img src = "" alt ="avatar"/>
+            <p>Asked by NAME on DATE</p>
+          </div>
+          <div className = 'vote-btns'>
+            <input type = "submit" value = "&#9650; Upvote" className = "upvote-btn vote-btn"/>
+            <input type = "submit" value = "&#9660; Downvote" className = "downvote-btn vote-btn"/>
+          </div>
         </div>
       </div>
     )

@@ -13,6 +13,7 @@ export default class QuestionCard extends Component {
   }
 
   render() {
+
     let mapper = this.props.arrayOfQuestionObjects.map((mapped, index) =>{
       if(index<100){
         return (
@@ -47,8 +48,10 @@ export default class QuestionCard extends Component {
               </div>
               <div className = "question-card-content-bottom-right">
                 <p>Viewed by {mapped.viewsNum} people</p>
+
               </div>
             </div>
+
           </div>
         );
       }
