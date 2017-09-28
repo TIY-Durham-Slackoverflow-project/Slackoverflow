@@ -65,7 +65,10 @@ class App extends Component {
   }
 
   navigateBackRequest(){
-    this.setState({ questionID: false });
+    this.setState({
+      questionID: false, 
+      postQuestion: false
+    });
   }
 
   //------ QuestionPageApp--Single question, answers and answer form
