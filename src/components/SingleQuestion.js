@@ -23,18 +23,19 @@ export default class SingleQuestion extends Component{
 // post: answerQ, voteA, voteQ
 
   render(){
+    let data = this.props.questionData;
     return(
       <div>
         <div className = "question-title-header">
           <div className = "question-cards-wrapper-top">
             <div className = "question-cards-wrapper-top-left">
-              <h1>{this.props.questionData.title}</h1>
+              <h1>{data.title}</h1>
             </div>
           </div>
         </div>
         <div className = "single-question-body">
           <div className = "single-question-body-left">
-            <p>{this.props.questionData.body}</p>
+            <p>{data.body}</p>
             <code>console.log("Hello World")</code>
             <p>Blah blah blah words about code answers</p>
           </div>
@@ -47,13 +48,14 @@ export default class SingleQuestion extends Component{
                 <th>Votes</th>
               </tr>
               <tr>
-                <td>{this.props.questionData.answers_num}</td>
-                <td>{this.props.questionData.views}</td>
-                <td>{this.props.questionData.votes}</td>
+                <td>{data.answers_num}</td>
+                <td>{data.views}</td>
+                <td>{data.votes}</td>
               </tr>
             </tbody>
             </table>
             <ul className = "question-tags-list">
+              
               <li>javascript</li>
               <li>react</li>
               <li>css</li>
@@ -63,8 +65,8 @@ export default class SingleQuestion extends Component{
         </div>
         <div className = "single-question-body-bottom">
           <div className = "user-class">
-            <img src = "" alt ="avatar"/>
-            <p>Created at: {this.props.questionData.created_at}</p>
+            <img src ={data.user.avatar} alt ="avatar"/>
+            <p>Created at: {data.created_at}</p>
           </div>
           <div className = 'vote-btns'>
             <input type = "submit" value = "&#9650; Upvote" className = "upvote-btn vote-btn"/>

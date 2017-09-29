@@ -40,11 +40,16 @@ export default class QuestionPageApp extends Component {
           (<div>
             <SingleQuestion
               questionData={this.state.questionData}
+              questionID={this.props.questionID}
+              token={this.props.token}
             />
             <AnswerCard
               answerData={this.state.questionData.answers}
+              questionID={this.props.questionID}
+              token={this.props.token}
             />
             <AnswerForm
+              questionID={this.props.questionID}
               token={this.props.token}
             />
           </div>)
