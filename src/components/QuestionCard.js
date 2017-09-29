@@ -54,7 +54,7 @@ export default class QuestionCard extends Component {
               </table>
             </div>
           </div>
-
+        </div>
         );
       }
     })
