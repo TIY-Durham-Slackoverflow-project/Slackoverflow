@@ -7,7 +7,12 @@ h1{
   font-family: 'Work Sans', sans-serif;
   font-size: 35px;
   color:  #4C9689;
+}
 
+input:focus, textarea:focus{
+  outline: none;
+  border-color: #4D384B;
+  box-shadow: 0 0 10px #4D384B;
 }
 
 /* header styles */
@@ -99,7 +104,12 @@ h1{
   width: 250px;
   height: 200px;
   color:#4D384B;
+  border-radius: 0 0 6px 6px;
+  border-left: solid 3px #4D384B;
+  border-bottom: solid 3px #4D384B;
+  border-right: solid 3px #4D384B;
   display: flex;
+  background-color: #F2F2F5;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
