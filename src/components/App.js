@@ -21,7 +21,6 @@ class App extends Component {
 
     // question cards
     this.sendQuestionIdUpToParent = this.sendQuestionIdUpToParent.bind(this);
-    this.handleSubmittedAnswerForm = this.handleSubmittedAnswerForm.bind(this);
     this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
     this.showProfilePage = this.showProfilePage.bind(this);
 
@@ -60,15 +59,6 @@ class App extends Component {
       postQuestion: false
     });
   }
-
-  //------ QuestionPageApp--Single question, answers and answer form
-  handleVoteChangeRequest(qOrA, plusOrMinus){
-    // one vote per Q or A per user? -- break into two fxns?
-  }
-
-  // handleAnswerVoteChangeRequest(){}
-
-
 
   // ------QuestionCards--Main page--list of questions
   // Check login => display form. Display form component. Accept data and post to

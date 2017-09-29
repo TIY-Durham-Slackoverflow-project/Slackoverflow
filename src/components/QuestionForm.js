@@ -17,12 +17,6 @@ export default class QuestionForm extends Component {
     this.props.navigateBackRequest(goBack);
   }
 
-  submitQuestionToDatabase(){
-    // post
-    // this.setState({postQuestion: false})
-
-  }
-
   updateFromField(stateKey) {
     return (event) => {
       this.setState({[stateKey]: event.target.value});

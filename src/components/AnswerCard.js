@@ -1,15 +1,32 @@
 import React, {Component} from 'react';
+import cookie from 'react-cookies';
+import request from 'superagent';
 
 export default class AnswerCard extends Component {
   constructor(props){
     super(props);
 
+    this.state = {
+      error: null
+
+    }
   }
 
 
-  handleVoteChangeRequest(qOrA, plusOrMinus){
-    // one vote per Q or A per user? -- break into two fxns?
-    // post, include token
+  handleVoteChangeRequest(event){
+    if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
+      event.preventDefault();
+      request
+        .post('https://murmuring-fjord-57185.herokuapp.com/api/answers/votes')
+        .send({vote: event.target.id})
+        .set('Authorization', `Token token=${this.props.token}`)
+        .end((err, res) =>{
+          if(err) {
+            this.setState({error: res.body.error});
+          }
+
+        })
+    }
   }
 
 // this.props.answerData
@@ -29,9 +46,9 @@ export default class AnswerCard extends Component {
               <img src = "" alt ="avatar"/>
               <p>Answered by NAME on DATE</p>
             </div>
-            <div className = 'vote-btns'>
-              <input onClick={this.} type = "submit" value = "&#9650; Upvote" className = "upvote-btn vote-btn"/>
-              <input type = "submit" value = "&#9660; Downvote" className = "downvote-btn vote-btn"/>
+            <div onClick={event => this.handleVoteChangeRequest(event)} className = 'vote-btns'>
+              <input type = "submit" id="1" value = "&#9650; Upvote" className = "upvote-btn vote-btn"/>
+              <input type = "submit" id="-1" value = "&#9660; Downvote" className = "downvote-btn vote-btn"/>
             </div>
           </div>
       </div>

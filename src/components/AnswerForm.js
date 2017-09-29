@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import cookie from 'react-cookies';
+import request from 'superagent';
 
 export default class AnswerForm extends Component {
   constructor(props){

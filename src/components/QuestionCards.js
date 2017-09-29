@@ -40,19 +40,9 @@ export default class QuestionCards extends Component {
   }
 
   fetchSomeShit(){
-    // superagentJsonapify(request);
     request
-      // .get(process.env.PUBLIC_URL + '/MOCK_DATA.json')
       .get('https://murmuring-fjord-57185.herokuapp.com/api/questions')
-      // .query({ action: 'edit', city: 'London' }) // query string
-      // .use(prefix) // Prefixes *only* this request
-      // .use(nocache) // Prevents caching of *only* this request
       .end((err, res) => {
-        // if(err) {
-        //   this.setState({error: res.body.error});
-        // }
-        // console.log(err);
-        // console.log(res);
         console.log(res.body.questions);
         let mockData = res.body.questions;
         this.setState({mockData: mockData});
