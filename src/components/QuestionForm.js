@@ -8,7 +8,8 @@ export default class QuestionForm extends Component {
 
     this.state = {
       title: null,
-      textarea: null
+      textarea: null,
+      error: null
     }
   }
 
@@ -31,12 +32,14 @@ export default class QuestionForm extends Component {
   submitQuestionToDatabase(event){
     event.preventDefault();
     request
-      .post()
-      .send({title: this.state.title, textarea: this.state.textarea})
+      .post('https://murmuring-fjord-57185.herokuapp.com/api/questions')
+      .send({title: this.state.title, body: this.state.textarea})
+      .set('Authorization', `Token token=${this.props.token}`)
       .end((err, res) =>{
         if(err) {
           this.setState({error: res.body.error});
         }
+
       })
   }
 

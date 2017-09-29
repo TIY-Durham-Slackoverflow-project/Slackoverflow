@@ -68,14 +68,11 @@ class App extends Component {
 
   // handleAnswerVoteChangeRequest(){}
 
-  handleSubmittedAnswerForm(){
-    // call fxn to post to DB
-  }
+
 
   // ------QuestionCards--Main page--list of questions
   // Check login => display form. Display form component. Accept data and post to
   handleQuestionSubmitFormRequest(value){
-
     this.setState({postQuestion: value});
   }
 

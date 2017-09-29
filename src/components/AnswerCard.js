@@ -3,11 +3,13 @@ import React, {Component} from 'react';
 export default class AnswerCard extends Component {
   constructor(props){
     super(props);
+
   }
 
 
   handleVoteChangeRequest(qOrA, plusOrMinus){
     // one vote per Q or A per user? -- break into two fxns?
+    // post, include token
   }
 
 // this.props.answerData
@@ -28,7 +30,7 @@ export default class AnswerCard extends Component {
               <p>Answered by NAME on DATE</p>
             </div>
             <div className = 'vote-btns'>
-              <input type = "submit" value = "&#9650; Upvote" className = "upvote-btn vote-btn"/>
+              <input onClick={this.} type = "submit" value = "&#9650; Upvote" className = "upvote-btn vote-btn"/>
               <input type = "submit" value = "&#9660; Downvote" className = "downvote-btn vote-btn"/>
             </div>
           </div>
