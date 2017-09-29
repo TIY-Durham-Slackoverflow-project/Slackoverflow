@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
 import cookie from 'react-cookies';
-import request from 'superagent';
+// import request from 'superagent';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import Jumbotron from "./Jumbotron.js";
@@ -26,7 +26,7 @@ class App extends Component {
 
 
     this.state ={
-      token: null,
+      token:  "VcYAN7Ni7tXBTADmCeaaN5hS",
       displayForm: false,
       questionID: false,
       profilePage: false,
@@ -39,9 +39,14 @@ class App extends Component {
     this.setState({token: cookie.load('token')});
   }
 
+  componentDidUpdate(){
+  }
+
   setToken(token) {
     this.setState({token: token});
     cookie.save('token', token);
+    console.log(token);
+    console.log(this.state.token);
   }
 
   // Header--
@@ -56,7 +61,8 @@ class App extends Component {
   navigateBackRequest(){
     this.setState({
       questionID: false,
-      postQuestion: false
+      postQuestion: false,
+      profilePage: false
     });
   }
 
@@ -85,6 +91,7 @@ class App extends Component {
         {this.state.displayForm ?
           <LoginForm
             display={this.state.displayForm}
+            setToken={this.setToken.bind(this)}
           /> :
           null
         }
@@ -96,7 +103,9 @@ class App extends Component {
           (<div>
             {this.state.postQuestion ?
             <QuestionForm
-              navigateBackRequest={this.navigateBackRequest}/> :
+              navigateBackRequest={this.navigateBackRequest}
+              token={this.state.token}
+            /> :
           <div className="question-cards-wrapper">
             {this.state.questionID ?
               (<QuestionPageApp

@@ -41,9 +41,9 @@ export default class QuestionCards extends Component {
 
   fetchSomeShit(){
     request
+
       .get('https://murmuring-fjord-57185.herokuapp.com/api/questions')
       .end((err, res) => {
-        console.log(res.body.questions);
         let mockData = res.body.questions;
         this.setState({mockData: mockData});
       });
@@ -74,6 +74,7 @@ export default class QuestionCards extends Component {
                   sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
                   showProfilePage={this.showProfilePage}
                   arrayOfQuestionObjects={this.state.mockData}
+                  token={this.props.token}
                 /> :
                 null
               }

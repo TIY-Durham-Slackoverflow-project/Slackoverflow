@@ -44,7 +44,9 @@ export default class QuestionPageApp extends Component {
             <AnswerCard
               answerData={this.state.questionData.answers}
             />
-            <AnswerForm/>
+            <AnswerForm
+              token={this.props.token}
+            />
           </div>)
         }
       </div>

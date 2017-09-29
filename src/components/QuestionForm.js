@@ -30,6 +30,8 @@ export default class QuestionForm extends Component {
       .send({title: this.state.title, body: this.state.textarea})
       .set('Authorization', `Token token=${this.props.token}`)
       .end((err, res) =>{
+        console.log(err);
+        console.log(res);
         if(err) {
           this.setState({error: res.body.error});
         }
