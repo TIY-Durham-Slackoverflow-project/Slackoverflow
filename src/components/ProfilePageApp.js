@@ -27,24 +27,27 @@ export default class ProfilePageApp extends Component {
 
   render(){
     return(
-      <div className = "user-wrapper">
-        <div>
-          <a onClick={this.navigateBackRequest}>Close</a>
-        </div>
+      <div>
         {this.state.user &&
-          <div>
+          <div className = "user-wrapper">
             <div className = "user-left">
               <div className = "large-avatar">
-                <img src ={this.state.user.avatar}/>
+                <img src ={this.state.user.avatar_big}/>
               </div>
-
-            </div>
-            <div className = "user-right">
+              <div className = "user-right">
               <h2>{this.state.user.username}</h2>
               <p>{this.state.user.bio_text}</p>
             </div>
+            </div>
+            <div className = 'questions-asked-user'>
+            <h2>questions asked</h2>
           </div>
+          <p>{this.state.user.questions[0].title}</p>
+
+          </div>
+
         }
+
       </div>
     )
   }

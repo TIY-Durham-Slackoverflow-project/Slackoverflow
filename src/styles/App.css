@@ -7,7 +7,12 @@ h1{
   font-family: 'Work Sans', sans-serif;
   font-size: 35px;
   color:  #4C9689;
+}
 
+input:focus, textarea:focus{
+  outline: none;
+  border-color: #4D384B;
+  box-shadow: 0 0 10px #4D384B;
 }
 
 /* header styles */
@@ -99,7 +104,12 @@ h1{
   width: 250px;
   height: 200px;
   color:#4D384B;
+  border-radius: 0 0 6px 6px;
+  border-left: solid 3px #4D384B;
+  border-bottom: solid 3px #4D384B;
+  border-right: solid 3px #4D384B;
   display: flex;
+  background-color: #F2F2F5;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -208,10 +218,11 @@ h1{
 }
 
 .question-card-icon {
-  height: 60px;
-  width: 60px;
-  border: 1px solid grey;
+  height: 50px;
+  width: 50px;
+  border: 1px solid #4D384B;
   margin-bottom: 0;
+  border-radius: 6px;
 }
 
 .question-card-content-left a{
@@ -226,13 +237,7 @@ h1{
   cursor: pointer;
 }
 
-.question-card-content-left{
-  width: 70%;
-}
 
-.question-card-content-right{
-  width: 30%;
-}
 
 .question-tags li{
   list-style-type: none;
@@ -245,13 +250,24 @@ h1{
 }
 
 .question-card-content-middle{
-  width:68%;
+  width:80%;
   margin-right: 2%;
-  height: 30.5vh;
 }
 
 .question-card-content-middle p, .question-card-content-middle h3{
   margin: 0;
+}
+
+.user-div{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.user-div a{
+  margin-left: 15px;
 }
 
 .all-question-user{
@@ -521,14 +537,18 @@ li:hover{
   margin: 0 auto;
   margin-top: 50px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
+.user-left{
+  display: flex;
+  justify-content: space-between;
+}
 
 .user-right{
-  width: 60%;
   font-family: "Open Sans", sans-serif;
-
+  width: 70%;
 }
 
 .user-right h2{
@@ -542,4 +562,16 @@ li:hover{
   border: solid 1px grey;
   border-radius: 50%;
   margin-top: 20px;
+  overflow:hidden;
+  margin-right: 25px;
+}
+
+.questions-asked-user{
+  margin-top: 25px;
+  border-bottom: solid .5px #4C9689;
+}
+
+.questions-asked-user h2{
+  font-family: "Work Sans", sans-serif;
+  color:  #4D384B;
 }
