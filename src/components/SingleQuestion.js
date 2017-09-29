@@ -24,6 +24,8 @@ export default class SingleQuestion extends Component{
 
   render(){
     let data = this.props.questionData;
+    let tags = data.tags.map((tag, index) => {
+    return(< li key={index}>{tag}</li>)})
     return(
       <div>
         <div className = "question-title-header">
@@ -55,10 +57,7 @@ export default class SingleQuestion extends Component{
             </tbody>
             </table>
             <ul className = "question-tags-list">
-              
-              <li>javascript</li>
-              <li>react</li>
-              <li>css</li>
+              {tags}
             </ul>
           </div>
 

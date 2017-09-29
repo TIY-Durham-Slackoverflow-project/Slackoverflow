@@ -31,27 +31,27 @@ export default class AnswerCard extends Component {
 
 
   render(){
-    let data = this.props.answerData.map((answer) => {
+    let data = this.props.answerData.map((answer, index) => {
     return(
-      <div>
+      < div key={index}>
         <div className = "answer-title-header">
-            <div className = "answer-header-left">
-              <h2>{answer.answer_body}</h2>
-            </div>
+          <div className = "answer-header-left">
+            <h2>{answer.answer_body}</h2>
           </div>
-          <div className = "answer-body-text">
-            <p>{answer.code}</p>
+        </div>
+        <div className = "answer-body-text">
+          <p>{answer.code}</p>
+        </div>
+        <div className = "single-question-body-bottom">
+          <div className = "user-class">
+            <img src ={answer.answer_user.avatar} alt ="avatar"/>
+            <p>Answered by {answer.answer_user.username} on {answer.answer_user.created_at}</p>
           </div>
-          <div className = "single-question-body-bottom">
-            <div className = "user-class">
-              <img src ={answer.answer_user.avatar} alt ="avatar"/>
-              <p>Answered by {answer.answer_user.username} on {answer.answer_user.created_at}</p>
-            </div>
-            <div onClick={event => this.handleVoteChangeRequest(event)} className = 'vote-btns'>
-              <input type = "submit" id="1" value = "&#9650; Upvote" className = "upvote-btn vote-btn"/>
-              <input type = "submit" id="-1" value = "&#9660; Downvote" className = "downvote-btn vote-btn"/>
-            </div>
+          <div onClick={event => this.handleVoteChangeRequest(event)} className = 'vote-btns'>
+            <input type = "submit" id="1" value = "&#9650; Upvote" className = "upvote-btn vote-btn"/>
+            <input type = "submit" id="-1" value = "&#9660; Downvote" className = "downvote-btn vote-btn"/>
           </div>
+        </div>
       </div>
     )})
     return (
