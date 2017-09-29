@@ -29,28 +29,34 @@ export default class AnswerCard extends Component {
     }
   }
 
-// this.props.answerData
+
   render(){
+    let data = this.props.answerData.map((answer, index) => {
     return(
-      <div>
+      < div key={index}>
         <div className = "answer-title-header">
-            <div className = "answer-header-left">
-              <h2>answer title goes here</h2>
-            </div>
+          <div className = "answer-header-left">
+            <h2>{answer.answer_body}</h2>
           </div>
-          <div className = "answer-body-text">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div className = "answer-body-text">
+          <p>{answer.code}</p>
+        </div>
+        <div className = "single-question-body-bottom">
+          <div className = "user-class">
+            <img src ={answer.answer_user.avatar} alt ="avatar"/>
+            <p>Answered by {answer.answer_user.username} on {answer.answer_user.created_at}</p>
           </div>
-          <div className = "single-question-body-bottom">
-            <div className = "user-class">
-              <img src = "" alt ="avatar"/>
-              <p>Answered by NAME on DATE</p>
-            </div>
-            <div onClick={event => this.handleVoteChangeRequest(event)} className = 'vote-btns'>
-              <input type = "submit" id="1" value = "&#9650; Upvote" className = "upvote-btn vote-btn"/>
-              <input type = "submit" id="-1" value = "&#9660; Downvote" className = "downvote-btn vote-btn"/>
-            </div>
+          <div onClick={event => this.handleVoteChangeRequest(event)} className = 'vote-btns'>
+            <input type = "submit" id="1" value = "&#9650; Upvote" className = "upvote-btn vote-btn"/>
+            <input type = "submit" id="-1" value = "&#9660; Downvote" className = "downvote-btn vote-btn"/>
           </div>
+        </div>
+      </div>
+    )})
+    return (
+      <div>
+        {data}
       </div>
     )
   }

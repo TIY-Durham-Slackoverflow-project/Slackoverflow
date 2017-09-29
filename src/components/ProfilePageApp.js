@@ -16,7 +16,6 @@ export default class ProfilePageApp extends Component {
 
   fetchSomeShit(){
     let id = this.props.profileFor;
-    id = 1;
     request
       .get(`https://murmuring-fjord-57185.herokuapp.com/api/users/${id}`)
       .end((err, res) => {

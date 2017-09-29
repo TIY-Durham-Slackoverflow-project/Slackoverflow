@@ -26,7 +26,7 @@ class App extends Component {
 
 
     this.state ={
-      token:  "VcYAN7Ni7tXBTADmCeaaN5hS",
+      token:  null,
       displayForm: false,
       questionID: false,
       profilePage: false,
@@ -110,12 +110,14 @@ class App extends Component {
             {this.state.questionID ?
               (<QuestionPageApp
                 questionID={this.state.questionID}
+                token={this.state.token}
               />) :
               (<QuestionCards
                 sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
                 handleQuestionSubmitFormRequest={this.handleQuestionSubmitFormRequest}
                 showProfilePage={this.showProfilePage}
                 postQuestion={this.state.postQuestion}
+                token={this.state.token}
               />)
             }
 

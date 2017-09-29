@@ -28,12 +28,15 @@ export default class AnswerForm extends Component {
 
   postAnAnswer(event){
     event.preventDefault();
+    let id = this.props.questionID;
     request
       // .get(process.env.PUBLIC_URL + '/MOCK_DATA.json')
-      .post('https://murmuring-fjord-57185.herokuapp.com/api/answers')
+      .post(`https://murmuring-fjord-57185.herokuapp.com/api/questions/${id}/answers`)
       .send({ body: this.state.textarea }) // query string
       .set('Authorization', `Token token=${this.props.token}`)
       .end((err, res) => {
+        console.log(err);
+        console.log(res);
         if(err) {
           this.setState({error: res.body.error});
         }

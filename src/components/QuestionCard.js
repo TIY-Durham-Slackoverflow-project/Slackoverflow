@@ -68,8 +68,8 @@ export default class QuestionCard extends Component {
           < div key={mapped.id} className="question-card-wrapper">
             <div className = "question-card-content-top">
             <div className = "question-card-content-left">
-              <div onClick={this.showProfilePage} id={mapped.user.id} className = "question-card-icon"><img src={mapped.avatar} alt = "icon"/></div>
-              <a>{mapped.questionUserName}</a>
+              <div onClick={this.showProfilePage} id={mapped.user.id} className = "question-card-icon"><img src={mapped.user.avatar} alt = "icon"/></div>
+              <a>{mapped.user.username}</a>
             </div>
             <div className = "question-card-content-middle">
               <h3 onClick={this.sendQuestionIdUpToParent} id={mapped.id} >{mapped.title}</h3>
