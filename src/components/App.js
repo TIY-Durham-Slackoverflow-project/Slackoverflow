@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
 import cookie from 'react-cookies';
-import request from 'superagent';
+// import request from 'superagent';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import Jumbotron from "./Jumbotron.js";
@@ -18,21 +18,18 @@ class App extends Component {
     // header
     this.sendLoginFormRequestUp = this.sendLoginFormRequestUp.bind(this);
     this.navigateBackRequest = this.navigateBackRequest.bind(this);
-    this.submitLoginData = this.submitLoginData.bind(this);
-    this.submitRegisterData = this.submitRegisterData.bind(this);
-
-
 
     // question cards
     this.sendQuestionIdUpToParent = this.sendQuestionIdUpToParent.bind(this);
-    this.handleSubmittedAnswerForm = this.handleSubmittedAnswerForm.bind(this);
     this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
+    this.showProfilePage = this.showProfilePage.bind(this);
+
 
     this.state ={
-      token: null,
+      token:  "VcYAN7Ni7tXBTADmCeaaN5hS",
       displayForm: false,
       questionID: false,
-      profilePage: "false",
+      profilePage: false,
       postQuestion: false
 
     };
@@ -42,9 +39,14 @@ class App extends Component {
     this.setState({token: cookie.load('token')});
   }
 
+  componentDidUpdate(){
+  }
+
   setToken(token) {
     this.setState({token: token});
     cookie.save('token', token);
+    console.log(token);
+    console.log(this.state.token);
   }
 
   // Header--
@@ -56,36 +58,17 @@ class App extends Component {
     }
   }
 
-  submitLoginData(){
-    // (post) check user data against DB. Returns with token. Put into cookie.
-  }
-
-  submitRegisterData(){
-    // (post) new user data
-  }
-
   navigateBackRequest(){
     this.setState({
       questionID: false,
-      postQuestion: false
+      postQuestion: false,
+      profilePage: false
     });
-  }
-
-  //------ QuestionPageApp--Single question, answers and answer form
-  handleVoteChangeRequest(qOrA, plusOrMinus){
-    // one vote per Q or A per user? -- break into two fxns?
-  }
-
-  // handleAnswerVoteChangeRequest(){}
-
-  handleSubmittedAnswerForm(){
-    // call fxn to post to DB
   }
 
   // ------QuestionCards--Main page--list of questions
   // Check login => display form. Display form component. Accept data and post to
   handleQuestionSubmitFormRequest(value){
-
     this.setState({postQuestion: value});
   }
 
@@ -93,7 +76,7 @@ class App extends Component {
     this.setState({questionID: value});
   }
 
-  handleIncomingProfilePage(value){
+  showProfilePage(value){
     this.setState({profilePage: value});
   }
 
@@ -108,27 +91,37 @@ class App extends Component {
         {this.state.displayForm ?
           <LoginForm
             display={this.state.displayForm}
-            submitLoginData={this.submitLoginData}
-            submitRegisterData={this.submitRegisterData}
+            setToken={this.setToken.bind(this)}
           /> :
           null
         }
         <Jumbotron/>
         {this.state.profilePage ?
-        <ProfilePageApp /> : null }
-        {this.state.postQuestion ?
-          <QuestionForm
-            navigateBackRequest={this.navigateBackRequest}/> :
-        <div className="question-cards-wrapper">
-          {this.state.questionID ?
-            (<QuestionPageApp />) :
-            (<QuestionCards
-              sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
-              handleQuestionSubmitFormRequest={this.handleQuestionSubmitFormRequest}
-              postQuestion={this.state.postQuestion}
-            />)
+          <ProfilePageApp
+            profileFor={this.state.profilePage}
+          /> :
+          (<div>
+            {this.state.postQuestion ?
+            <QuestionForm
+              navigateBackRequest={this.navigateBackRequest}
+              token={this.state.token}
+            /> :
+          <div className="question-cards-wrapper">
+            {this.state.questionID ?
+              (<QuestionPageApp
+                questionID={this.state.questionID}
+              />) :
+              (<QuestionCards
+                sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
+                handleQuestionSubmitFormRequest={this.handleQuestionSubmitFormRequest}
+                showProfilePage={this.showProfilePage}
+                postQuestion={this.state.postQuestion}
+              />)
+            }
+
+          </div>
           }
-        </div>
+        </div>)
         }
         <Footer/>
       </div>

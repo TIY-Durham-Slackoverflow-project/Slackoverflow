@@ -12,14 +12,13 @@ export default class QuestionCards extends Component {
     super(props);
     this.sendQuestionIdUpToParent = this.sendQuestionIdUpToParent.bind(this);
     this.handleQuestionSubmitFormRequest = this.handleQuestionSubmitFormRequest.bind(this);
+    this.showProfilePage = this.showProfilePage.bind(this);
 
     this.state ={
       postQuestion: false,
       mockData: null
     }
-    // this.sendDataUp = this.sendDataUp.bind(this);
   }
-
 
   handleQuestionSubmitFormRequest(event){
     if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
@@ -32,57 +31,58 @@ export default class QuestionCards extends Component {
     this.props.sendQuestionIdUpToParent(e);
   }
 
-  fetchSomeShit(){
-    // superagentJsonapify(request);
-    request
-      // .get(process.env.PUBLIC_URL + '/MOCK_DATA.json')
-      .get('https://murmuring-fjord-57185.herokuapp.com/api/questions')
-      // .query({ action: 'edit', city: 'London' }) // query string
-      // .use(prefix) // Prefixes *only* this request
-      // .use(nocache) // Prevents caching of *only* this request
-      .end((err, res) => {
-        // if(err) {
-        //   this.setState({error: res.body.error});
-        // }
-        // console.log(err);
-        console.log(res.text.questions);
-        let mockData = res.text.questions;
-        this.setState({mockData: mockData});
-      });
+  showProfilePage(e){
+    this.props.showProfilePage(e);
   }
 
   componentWillMount(){
     this.fetchSomeShit();
-
   }
 
-  render() {
-    return (
-      <div>
+  fetchSomeShit(){
+    request
 
-        <div className="question-card-wrapper">
-            <div>
-              {this.state.postQuestion ?
-                null :
-                (<div className = "question-cards-wrapper-top">
-                  <div className = "question-cards-wrapper-top-left">
-                    <h2>all questions</h2>
-                  </div>
-                  <div className = "question-cards-wrapper-top-right">
-                    <a onClick={this.handleQuestionSubmitFormRequest}
-                      id="true"
-                      >Ask a Question</a>
-                  </div>
-                </div>)
+      .get('https://murmuring-fjord-57185.herokuapp.com/api/questions')
+      .end((err, res) => {
+        let mockData = res.body.questions;
+        this.setState({mockData: mockData});
+      });
+  }
+
+    render() {
+      return (
+        <div>
+
+          <div className="question-card-wrapper">
+              <div>
+                {this.state.postQuestion ?
+                  null :
+                  (<div className = "question-cards-wrapper-top">
+                    <div className = "question-cards-wrapper-top-left">
+                      <h2>all questions</h2>
+                    </div>
+                    <div className = "question-cards-wrapper-top-right">
+                      <a onClick={this.handleQuestionSubmitFormRequest}
+                        id="true"
+                        >Ask a Question</a>
+                    </div>
+                  </div>)
+                }
+              </div>
+              {this.state.mockData ?
+                <QuestionCard
+                  sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
+                  showProfilePage={this.showProfilePage}
+                  arrayOfQuestionObjects={this.state.mockData}
+                  token={this.props.token}
+                /> :
+                null
               }
             </div>
-            <QuestionCard sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
-              arrayOfQuestionObjects={this.state.mockData}
-            />
-          </div>
-      </div>
-    );
-  }
+        </div>
+      );
+    }
+
 }
 
 QuestionCards.propTypes = {

@@ -3,6 +3,7 @@ import '../styles/App.css';
 import SingleQuestion from "../components/SingleQuestion.js";
 import AnswerCard from '../components/AnswerCard.js';
 import AnswerForm from '../components/AnswerForm.js';
+import request from 'superagent';
 
 export default class QuestionPageApp extends Component {
   constructor(props){
@@ -12,33 +13,42 @@ export default class QuestionPageApp extends Component {
 
     this.state={
       idvariable: "",
-      questionID: false
+      questionData: null
     };
   }
 
-  // handleIncomingData(value){
-  //   this.setState({
-  //     idvariable: value,
-  //     questionID: false
-  //   });
-  // }
-  // this.props.sendDataUpToParent(value);
+  componentWillMount(){
+    this.fetchSomeShit();
+  }
 
-
-
+  fetchSomeShit(){
+    let id = this.props.questionID;
+    // id = 1;
+    request
+      .get(`https://murmuring-fjord-57185.herokuapp.com/api/questions/${id}`)
+      .end((err, res) => {
+        let questionData = res.body.question;
+        this.setState({questionData: questionData});
+      });
+  }
 
 
   render() {
     return (
       <div className="single-question-container">
-
-        <SingleQuestion
-          // submitAnswerFormUp={this.submitAnswerFormUp}
-        />
-
-        <AnswerCard/>
-        <AnswerForm/>
-
+        {this.state.questionData &&
+          (<div>
+            <SingleQuestion
+              questionData={this.state.questionData}
+            />
+            <AnswerCard
+              answerData={this.state.questionData.answers}
+            />
+            <AnswerForm
+              token={this.props.token}
+            />
+          </div>)
+        }
       </div>
     );
   }
