@@ -22,11 +22,14 @@ export default class LoginForm extends Component {
 
   register(event){
     event.preventDefault();
+    let user = user.username;
+    let pswrd = user.password;
     request
-      .post()
-      .send({username: this.state.username, password: this.state.password})
+      .post('https://murmuring-fjord-57185.herokuapp.com/api/users')
+      .send({user: this.state.username, pswrd: this.state.password})
       .end((err, res) =>{
         if(err) {
+          console.log(err);
           this.setState({error: res.body.error});
         }
       })
@@ -36,12 +39,15 @@ export default class LoginForm extends Component {
     let setToken = this.props.setToken;
     event.preventDefault();
     request
-      .post()
-      .send({userName: this.state.userName, password: this.state.password})
+      .post('https://murmuring-fjord-57185.herokuapp.com/api/users/login')
+      .send({username: this.state.username, password: this.state.password})
       .end((err, res) =>{
         if(err) {
+          console.log(err);
+          console.log(res);
           this.setState({error: res.body.error});
         }else{
+          console.log(res.body.token);
           setToken(res.body.token);
         }
       })

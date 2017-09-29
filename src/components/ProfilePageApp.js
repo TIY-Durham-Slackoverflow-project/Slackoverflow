@@ -1,24 +1,51 @@
 import React, { Component } from 'react';
+import request from 'superagent';
 
 export default class ProfilePageApp extends Component {
   constructor(props){
     super(props);
+
+    this.state = {
+      user: null
+    }
   }
+
+  componentWillMount(){
+    this.fetchSomeShit();
+  }
+
+  fetchSomeShit(){
+    let id = this.props.profileFor;
+    id = 1;
+    request
+      .get(`https://murmuring-fjord-57185.herokuapp.com/api/users/${id}`)
+      .end((err, res) => {
+        let userData = res.body.user;
+        this.setState({user: userData});
+      });
+  }
+
   render(){
     return(
       <div className = "user-wrapper">
-        <div className = "user-left">
-        <div className = "large-avatar">
-          <img src = ""/>
+        <div>
+          <a onClick={this.navigateBackRequest}>Close</a>
         </div>
+        {this.state.user &&
+          <div>
+            <div className = "user-left">
+              <div className = "large-avatar">
+                <img src ={this.state.user.avatar}/>
+              </div>
 
+            </div>
+            <div className = "user-right">
+              <h2>{this.state.user.username}</h2>
+              <p>{this.state.user.bio_text}</p>
+            </div>
+          </div>
+        }
       </div>
-      <div className = "user-right">
-        <h2>Username</h2>
-        <p>"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."</p>
-      </div>
-
-        </div>
     )
   }
 }
