@@ -30,31 +30,31 @@ export default class QuestionCard extends Component {
         return (
           < div key={mapped.id} className="question-card-wrapper">
             <div className = "question-card-content-top">
-            <div className = "question-card-content-middle">
-              <h3 onClick={this.sendQuestionIdUpToParent} id={mapped.id} >{mapped.title}</h3>
-              <p>{mapped.body}</p>
-              <div className = "user-div">
-              <div onClick={this.showProfilePage} id={mapped.user.id} className = "question-card-icon"><img src={mapped.user.avatar} alt = "icon"/></div>
-              <div><a>{mapped.user.username} asked on {mapped.created_at}</a></div>
+              <div className = "question-card-content-middle">
+                <h3 onClick={this.sendQuestionIdUpToParent} id={mapped.id} >{mapped.title}</h3>
+                <p>{mapped.body}</p>
+                <div className = "user-div">
+                <div onClick={this.showProfilePage} id={mapped.user.id} className = "question-card-icon"><img src={mapped.user.avatar} alt = "icon"/></div>
+                <div><a>{mapped.user.username} asked on {mapped.created_at}</a></div>
+              </div>
+              </div>
+              <div className = "question-card-content-right">
+                <table>
+                  <tbody>
+                  <tr>
+                    <th>Answers</th>
+                    <th>Views</th>
+                    <th>Votes</th>
+                  </tr>
+                  <tr>
+                    <td>{mapped.answers_num}</td>
+                    <td>{mapped.views}</td>
+                    <td>{mapped.votes}</td>
+                  </tr>
+                </tbody>
+                </table>
+              </div>
             </div>
-            </div>
-            <div className = "question-card-content-right">
-              <table>
-                <tbody>
-                <tr>
-                  <th>Answers</th>
-                  <th>Views</th>
-                  <th>Votes</th>
-                </tr>
-                <tr>
-                  <td>{mapped.answers_num}</td>
-                  <td>{mapped.views}</td>
-                  <td>{mapped.votes}</td>
-                </tr>
-              </tbody>
-              </table>
-            </div>
-          </div>
           </div>
         );
       }

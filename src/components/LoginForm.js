@@ -22,14 +22,15 @@ export default class LoginForm extends Component {
 
   register(event){
     event.preventDefault();
-    let user = user.username;
-    let pswrd = user.password;
+    let user = "user.username";
+    let pswrd = "user.password";
     request
       .post('https://murmuring-fjord-57185.herokuapp.com/api/users')
-      .send({user: this.state.username, pswrd: this.state.password})
+      .send({user: {username: this.state.username, password: this.state.password}})
       .end((err, res) =>{
         if(err) {
           console.log(err);
+          console.log(res);
           this.setState({error: res.body.error});
         }
       })

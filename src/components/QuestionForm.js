@@ -55,7 +55,7 @@ export default class QuestionForm extends Component {
               <input onClick={event => this.submitQuestionToDatabase(event)} type = "submit" value = "submit" className = "submit-question-btn" name = "submit-question"/>
               <input onClick={this.navigateBackRequest} type = "submit" value = "cancel" className = "cancel-question-btn submit-question-btn" name = "cancel-question"/>
 
-          </div>
+            </div>
           </form>
         </div>
       </div>
