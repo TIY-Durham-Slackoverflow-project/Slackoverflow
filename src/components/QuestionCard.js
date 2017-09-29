@@ -60,7 +60,7 @@ export default class QuestionCard extends Component {
   }
 
   render() {
-    let mapper = this.props.arrayOfQuestionObjects.map((mapped, index) =>{
+    let mapped = this.props.arrayOfQuestionObjects.map((mapped, index) =>{
       if(index<100){
         return (
           <div key={mapped.id} className="question-card-wrapper">
