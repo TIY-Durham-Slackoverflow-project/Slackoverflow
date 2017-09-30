@@ -92,6 +92,7 @@ class App extends Component {
           <LoginForm
             display={this.state.displayForm}
             setToken={this.setToken.bind(this)}
+            sendLoginFormRequestUp={this.sendLoginFormRequestUp}
           /> :
           null
         }

@@ -20,8 +20,13 @@ export default class LoginForm extends Component {
     }
   }
 
+  sendLoginFormRequestUp(goBack){
+    this.props.sendLoginFormRequestUp(goBack);
+  }
+
   register(event){
     event.preventDefault();
+    let closeForm = this.sendLoginFormRequestUp;
     let user = "user.username";
     let pswrd = "user.password";
     request
@@ -32,6 +37,8 @@ export default class LoginForm extends Component {
           console.log(err);
           console.log(res);
           this.setState({error: res.body.error});
+        }else{
+          this.sendLoginFormRequestUp("register");
         }
       })
   }
@@ -50,6 +57,7 @@ export default class LoginForm extends Component {
         }else{
           console.log(res.body.token);
           setToken(res.body.token);
+          this.sendLoginFormRequestUp("login");
         }
       })
   }
