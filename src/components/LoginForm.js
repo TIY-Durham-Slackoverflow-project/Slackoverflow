@@ -9,7 +9,7 @@ export default class LoginForm extends Component {
       // register: false
       username: "",
       password: "",
-      error: false,
+      errorBody: false,
       token: false
     }
   }
@@ -52,8 +52,8 @@ export default class LoginForm extends Component {
       .end((err, res) =>{
         if(err) {
           console.log(err);
-          console.log(res);
-          this.setState({error: res.body.error});
+          console.log(res.body);
+          this.setState({errorBody: res.body});
         }else{
           console.log(res.body.token);
           setToken(res.body.token);
@@ -74,7 +74,11 @@ export default class LoginForm extends Component {
                 <h3>Register</h3> :
                 <h3>Login</h3>
               }
-                {this.state.error && <div className="alert">{this.state.error}</div>}
+              {this.state.error &&
+                <div className="alert">
+                  {this.state.username}{this.state.errorBody.errors.username}
+                </div>
+              }
             </div>
             <div className="form-group">
               {/* <label htmlFor="username">Username</label> */}

@@ -34,9 +34,13 @@ export default class QuestionCard extends Component {
                 <h3 onClick={this.sendQuestionIdUpToParent} id={mapped.id} >{mapped.title}</h3>
                 <p>{mapped.body}</p>
                 <div className = "user-div">
-                <div onClick={this.showProfilePage} id={mapped.user.id} className = "question-card-icon"><img src={mapped.user.avatar} alt = "icon"/></div>
-                <div><a>{mapped.user.username} asked on {mapped.created_at}</a></div>
-              </div>
+                  <div className = "question-card-icon">
+                    <img onClick={this.showProfilePage} id={mapped.user.id} src={mapped.user.avatar} alt = "icon"/>
+                  </div>
+                  <div>
+                    <a>{mapped.user.username} asked on {mapped.created_at}</a>
+                  </div>
+                </div>
               </div>
               <div className = "question-card-content-right">
                 <table>
