@@ -5,6 +5,7 @@ import request from 'superagent';
 export default class AnswerCard extends Component {
   constructor(props){
     super(props);
+    this.showProfilePage = this.showProfilePage.bind(this);
 
     this.state = {
       error: null
@@ -29,6 +30,12 @@ export default class AnswerCard extends Component {
     }
   }
 
+  showProfilePage(event){
+    if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
+      this.props.showProfilePage(event.target.id);
+    }
+  }
+
 
   render(){
     let data = this.props.answerData.map((answer, index) => {
@@ -44,7 +51,7 @@ export default class AnswerCard extends Component {
         </div>
         <div className = "single-question-body-bottom">
           <div className = "user-class">
-            <img src ={answer.answer_user.avatar} alt ="avatar"/>
+            <img onClick={this.showProfilePage} id={answer.answer_user.id} src ={answer.answer_user.avatar} alt ="avatar"/>
             <p>Answered by {answer.answer_user.username} on {answer.answer_user.created_at}</p>
           </div>
           <div onClick={event => this.handleVoteChangeRequest(event)} className = 'vote-btns'>

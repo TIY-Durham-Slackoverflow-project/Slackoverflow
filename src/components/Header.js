@@ -7,6 +7,7 @@ export default class Header extends Component {
     super(props);
     this.sendLoginFormRequestUp = this.sendLoginFormRequestUp.bind(this);
     this.navigateBackRequest = this.navigateBackRequest.bind(this);
+    this.sendLogOutRequestUp = this.sendLogOutRequestUp.bind(this);
   }
 
   sendLoginFormRequestUp(event){
@@ -17,6 +18,10 @@ export default class Header extends Component {
 
   navigateBackRequest(goBack){
     this.props.navigateBackRequest(goBack);
+  }
+
+  sendLogOutRequestUp(logout){
+    this.props.sendLogOutRequestUp(logout);
   }
 
   render(){
@@ -30,12 +35,17 @@ export default class Header extends Component {
             <h3>slackoverflow</h3>
           </div>
         </div>
-        <div className = "header-right">
-          <a onClick={this.navigateBackRequest} id = "go-home" className = "go-home-btn login-btn">Home</a>
-          <a onClick={this.sendLoginFormRequestUp} id="login" className = "login-btn">Login</a>
-          <a onClick={this.sendLoginFormRequestUp} id="register" className = "register-btn">Register</a>
-        </div>
-        {/* <LoginForm/> */}
+        {this.props.token ?
+          <div className = "header-right">
+            <a onClick={this.navigateBackRequest} id = "go-home" className = "go-home-btn login-btn">Home</a>
+            <a onClick={this.sendLogOutRequestUp} className = "login-btn">Log out</a>
+          </div> :
+          <div className = "header-right">
+            <a onClick={this.navigateBackRequest} id = "go-home" className = "go-home-btn login-btn">Home</a>
+            <a onClick={this.sendLoginFormRequestUp} id="login" className = "login-btn">Login</a>
+            <a onClick={this.sendLoginFormRequestUp} id="register" className = "register-btn">Register</a>
+          </div>
+        }
       </div>
     );
   }

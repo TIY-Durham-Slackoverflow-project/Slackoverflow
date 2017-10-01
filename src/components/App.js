@@ -39,9 +39,6 @@ class App extends Component {
     this.setState({token: cookie.load('token')});
   }
 
-  componentDidUpdate(){
-  }
-
   setToken(token) {
     this.setState({token: token});
     cookie.save('token', token);
@@ -66,6 +63,11 @@ class App extends Component {
     });
   }
 
+  sendLogOutRequestUp(){
+    this.setState({token: null});
+    cookie.save('token', null);
+  }
+
   // ------QuestionCards--Main page--list of questions
   // Check login => display form. Display form component. Accept data and post to
   handleQuestionSubmitFormRequest(value){
@@ -77,6 +79,7 @@ class App extends Component {
   }
 
   showProfilePage(value){
+    console.log(value);
     this.setState({profilePage: value});
   }
 
@@ -87,6 +90,8 @@ class App extends Component {
         <Header
           sendLoginFormRequestUp={this.sendLoginFormRequestUp}
           navigateBackRequest={this.navigateBackRequest}
+          token={this.state.token}
+          sendLogOutRequestUp={this.sendLogOutRequestUp.bind(this)}
         />
         {this.state.displayForm ?
           <LoginForm
@@ -112,6 +117,7 @@ class App extends Component {
               (<QuestionPageApp
                 questionID={this.state.questionID}
                 token={this.state.token}
+                showProfilePage={this.showProfilePage}
               />) :
               (<QuestionCards
                 sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}

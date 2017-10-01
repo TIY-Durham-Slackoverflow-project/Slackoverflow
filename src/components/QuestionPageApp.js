@@ -8,7 +8,7 @@ import request from 'superagent';
 export default class QuestionPageApp extends Component {
   constructor(props){
     super(props);
-
+    this.showProfilePage = this.showProfilePage.bind(this);
     // this.submitAnswerFormUp = this.submitAnswerFormUp.bind(this);
 
     this.state={
@@ -32,6 +32,9 @@ export default class QuestionPageApp extends Component {
       });
   }
 
+  showProfilePage(e){
+    this.props.showProfilePage(e);
+  }
 
   render() {
     return (
@@ -47,6 +50,7 @@ export default class QuestionPageApp extends Component {
               answerData={this.state.questionData.answers}
               questionID={this.props.questionID}
               token={this.props.token}
+              showProfilePage={this.showProfilePage}
             />
             <AnswerForm
               questionID={this.props.questionID}
