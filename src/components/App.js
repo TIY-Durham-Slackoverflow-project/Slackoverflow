@@ -36,12 +36,12 @@ class App extends Component {
   }
 
   componentWillMount() {
-    this.setState({token: cookie.load('token')});
+    this.setState({token: cookie.load('token')}); //get token from cookie, if it exists
   }
 
   setToken(token) {
     this.setState({token: token});
-    cookie.save('token', token);
+    cookie.save('token', token); //saves token in cookie
     console.log(token);
     console.log(this.state.token);
   }
@@ -64,8 +64,8 @@ class App extends Component {
   }
 
   sendLogOutRequestUp(){
+    cookie.remove('token'); //deletes token from cookie
     this.setState({token: null});
-    cookie.save('token', null);
   }
 
   // ------QuestionCards--Main page--list of questions

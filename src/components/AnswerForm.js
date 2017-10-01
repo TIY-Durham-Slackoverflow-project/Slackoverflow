@@ -49,6 +49,7 @@ export default class AnswerForm extends Component {
         <div className = "answer-form-header">
           <h2>answer this question</h2>
         </div>
+        {this.state.error && <div className="alert">{this.state.error}</div>}
         <form id = "answerForm">
           <p><textarea
             onChange={this.updateFromField('textarea')}
