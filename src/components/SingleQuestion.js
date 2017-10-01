@@ -40,6 +40,7 @@ export default class SingleQuestion extends Component{
   }
 
   render(){
+    let data = this.props.questionData;
     return(
       <div>
         <div className = "question-title-header">
