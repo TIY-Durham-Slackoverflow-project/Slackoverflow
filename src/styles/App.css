@@ -330,6 +330,10 @@ th, td{
   height: 45px;
 }
 
+.user-div img:hover{
+  cursor: pointer;
+}
+
 /* single question page */
 
 .single-question-body{
