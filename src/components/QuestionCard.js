@@ -48,7 +48,7 @@ export default class QuestionCard extends Component {
                 <tr>
                   <td>{mapped.answers_num}</td>
                   <td>{mapped.views}</td>
-                  <td>{mapped.votes}</td>
+                  <td>0</td>
                 </tr>
               </tbody>
               </table>

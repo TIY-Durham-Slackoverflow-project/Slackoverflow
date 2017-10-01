@@ -38,9 +38,11 @@ export default class SingleQuestion extends Component{
         <div className = "single-question-body">
           <div className = "single-question-body-left">
             <p>{data.body}</p>
-            <code>console.log("Hello World")</code>
-            <p>Blah blah blah words about code answers</p>
-          </div>
+          <p className = "user-class">
+            <img src ={data.user.avatar} alt ="avatar"/>
+            <p>Created at: {data.created_at}</p>
+          </p>
+        </div>
           <div className = "single-question-body-right">
             <table>
               <tbody>
@@ -52,24 +54,14 @@ export default class SingleQuestion extends Component{
               <tr>
                 <td>{data.answers_num}</td>
                 <td>{data.views}</td>
-                <td>{data.votes}</td>
+                <td>0</td>
               </tr>
             </tbody>
             </table>
-            <ul className = "question-tags-list">
-              {tags}
-            </ul>
-          </div>
-
-        </div>
-        <div className = "single-question-body-bottom">
-          <div className = "user-class">
-            <img src ={data.user.avatar} alt ="avatar"/>
-            <p>Created at: {data.created_at}</p>
-          </div>
-          <div className = 'vote-btns'>
-            <input type = "submit" value = "&#9650; Upvote" className = "upvote-btn vote-btn"/>
-            <input type = "submit" value = "&#9660; Downvote" className = "downvote-btn vote-btn"/>
+            <div className = 'vote-btns'>
+              <input type = "submit" value = "&#9650; Upvote" className = "upvote-btn vote-btn"/>
+              <input type = "submit" value = "&#9660; Downvote" className = "downvote-btn vote-btn"/>
+            </div>
           </div>
         </div>
       </div>
