@@ -22,10 +22,24 @@ export default class SingleQuestion extends Component{
 
 // post: answerQ, voteA, voteQ
 
+  displayTags(){
+    if(this.props.questionData.tags.length>0){
+      let tags = this.props.questionData.tags.map((tag, index) =>{
+        return( < li key={index} >{tag}</li> )
+      })
+      return(
+          <div className='question-tags-list'>
+            <ul>
+              {tags}
+            </ul>
+          </div>
+      )
+    }else{
+      return null;
+    }
+  }
+
   render(){
-    let data = this.props.questionData;
-    let tags = data.tags.map((tag, index) => {
-    return(< li key={index}>{tag}</li>)})
     return(
       <div>
         <div className = "question-title-header">
@@ -63,6 +77,7 @@ export default class SingleQuestion extends Component{
               <input type = "submit" value = "&#9660; Downvote" className = "downvote-btn vote-btn"/>
             </div>
           </div>
+          {this.displayTags()}
         </div>
       </div>
     )
