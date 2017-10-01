@@ -17,8 +17,7 @@ export default class QuestionCard extends Component {
   showProfilePage(event){
     if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
       this.props.showProfilePage(event.target.id);
-    }
-  }
+    }  }
 
   handleVoteChangeRequest(qOrA, plusOrMinus){
     // one vote per Q or A per user? -- break into two fxns?
@@ -49,13 +48,13 @@ export default class QuestionCard extends Component {
                 <tr>
                   <td>{mapped.answers_num}</td>
                   <td>{mapped.views}</td>
-                  <td>{mapped.votes}</td>
+                  <td>0</td>
                 </tr>
               </tbody>
               </table>
             </div>
           </div>
-          </div>
+        </div>
         );
       }
     })

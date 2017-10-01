@@ -49,7 +49,7 @@ export default class QuestionForm extends Component {
         <div className = "ask-question-page-form-wrapper">
           <form className = "ask-question-form">
             <p><input onChange={this.updateFromField('title')} className = "form-title-input" type = "text" name = "ask-title" placeholder="Title" autoFocus/></p>
-            <p><textarea onChange={this.updateFromField('textarea')} name = "ask-details">Question Details:</textarea></p>
+            <p><textarea onChange={this.updateFromField('textarea')} name = "ask-details" placeholder="Question Details:"></textarea></p>
             <div>
 
               <input onClick={event => this.submitQuestionToDatabase(event)} type = "submit" value = "submit" className = "submit-question-btn" name = "submit-question"/>

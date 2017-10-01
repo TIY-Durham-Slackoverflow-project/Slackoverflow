@@ -337,11 +337,16 @@ th, td{
   justify-content: space-between;
   align-content: center;
   font-family: 'Open Sans', sans-serif;
+  border-bottom: solid .5px #4C9689;
+  padding-bottom: 15px;
 
 }
 
 .single-question-body-left{
   width: 69%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .single-question-body-right{
@@ -372,7 +377,7 @@ table{
   align-items: center;
   justify-content: space-between;
   font-family: "Open Sans", sans-serif;
-  padding-bottom: 65px;
+  padding-bottom: 30px;
   border-bottom: solid .5px #4C9689;
 }
 
@@ -402,7 +407,6 @@ table{
   border-radius: 6px;
   font-family: "Open Sans", sans-serif;
   font-size: 17px;
-  width: 45%;
 }
 
 .vote-btns input:hover{
@@ -410,12 +414,17 @@ table{
   background-color: #DF1463;
   border: none;
   color: white;
+  border: solid 1px transparent;
+}
+
+.single-vote{
+  width: 30%;
 }
 
 .vote-btns{
-  width: 30%;
   display: flex;
   justify-content: space-around;
+  margin-top: 20px;
 }
 
 
