@@ -17,8 +17,7 @@ export default class QuestionCard extends Component {
   showProfilePage(event){
     if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
       this.props.showProfilePage(event.target.id);
-    }
-  }
+    }  }
 
   handleVoteChangeRequest(qOrA, plusOrMinus){
     // one vote per Q or A per user? -- break into two fxns?
