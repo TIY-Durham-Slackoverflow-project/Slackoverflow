@@ -7,7 +7,7 @@ export default class ProfilePageApp extends Component {
 
     this.state = {
       user: null,
-      displayQuestions: false,
+      // displayQuestions: false,
       displayAnswers: false
     }
   }
@@ -28,18 +28,57 @@ export default class ProfilePageApp extends Component {
       });
   }
 
-  componentDidUpdate(){
-    if(this.state.user.questions!==[]){
-      this.setState({displayQuestions: true})
+  // componentDidUpdate(){
+  //   if(this.state.user.questions){
+  //     this.setState({displayQuestions: true})
+  //   }
+  // }
+
+  displayQuestions(){
+    if(this.state.user.questions.length>0){
+      let questions = this.state.user.questions.map((question, index) =>{
+        return( < li key={index} >{question.title}</li> )
+      })
+      return(
+        <div>
+          <div className = 'questions-asked-user'>
+            <h2>questions asked</h2>
+          </div>
+          <div>
+            <ul>
+              {questions}
+            </ul>
+          </div>
+        </div>
+      )
+    }else{
+      return null;
+    }
+  }
+
+  displayAnswers(){
+    if(this.state.user.answers.length>0){
+      let answers = this.state.user.answers.map((answer, index) =>{
+        return( < li key={index} >{answer.body}</li> )
+      })
+      return(
+        <div>
+          <div className = 'questions-asked-user'>
+            <h2>questions answered</h2>
+          </div>
+          <div>
+            <ul>
+              {answers}
+            </ul>
+          </div>
+        </div>
+      )
+    }else{
+      return null;
     }
   }
 
   render(){
-    // if(this.state.displayQuestions){
-    //   let questions = this.state.user.questions.map((question, index) =>{
-    //     return( <p>{question.title}</p> )
-    //   })
-    // }
     return(
       <div>
         {this.state.user &&
@@ -53,14 +92,8 @@ export default class ProfilePageApp extends Component {
                 <p>{this.state.user.bio_text}</p>
               </div>
             </div>
-            <div className = 'questions-asked-user'>
-            <h2>questions asked</h2>
-            </div>
-            {/* {this.state.displayQuestions &&
-              <div>
-                {questions}
-              </div>
-            } */}
+              {this.displayQuestions()}
+              {this.displayAnswers()}
           </div>)
         }
       </div>
