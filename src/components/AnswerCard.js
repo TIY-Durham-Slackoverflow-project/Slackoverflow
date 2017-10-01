@@ -48,29 +48,35 @@ export default class AnswerCard extends Component {
         </div>
         <div className = "answer-body-text">
           <p>{answer.code}</p>
+          <div className = "answer-right">
+          <div className = "answer-table">
+          <table>
+            <tbody>
+              <tr>
+                <th>Views</th>
+                <th>Votes</th>
+              </tr>
+              <tr>
+                <td>{answer.answer_views}</td>
+                <td>{answer.votes_num}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+        <div onClick={event => this.handleVoteChangeRequest(event)} className = 'single-vote vote-btns'>
+          <input type = "submit" id="1" value = "&#9650; Upvote" className = "upvote-btn vote-btn"/>
+          <input type = "submit" id="-1" value = "&#9660; Downvote" className = "downvote-btn vote-btn"/>
+        </div>
+      </div>
+    </div>
         <div className = "single-question-body-bottom">
           <div className = "user-class">
             <img onClick={this.showProfilePage} id={answer.answer_user.id} src ={answer.answer_user.avatar} alt ="avatar"/>
             <p>Answered by {answer.answer_user.username} on {answer.answer_user.created_at}</p>
           </div>
           <div className = "question-card-content-right">
-            <table>
-              <tbody>
-                <tr>
-                  <th>Views</th>
-                  <th>Votes</th>
-                </tr>
-                <tr>
-                  <td>{answer.answer_views}</td>
-                  <td>{answer.votes_num}</td>
-                </tr>
-              </tbody>
-            </table>
-            <div onClick={event => this.handleVoteChangeRequest(event)} className = 'single-vote vote-btns'>
-              <input type = "submit" id="1" value = "&#9650; Upvote" className = "upvote-btn vote-btn"/>
-              <input type = "submit" id="-1" value = "&#9660; Downvote" className = "downvote-btn vote-btn"/>
-            </div>
+
+
           </div>
         </div>
       </div>

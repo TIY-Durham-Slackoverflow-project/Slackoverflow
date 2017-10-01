@@ -236,6 +236,10 @@ input:focus, textarea:focus{
   cursor: pointer;
 }
 
+.question-card-content-right{
+  width: 46vh;
+}
+
 
 
 .question-tags li{
@@ -376,7 +380,7 @@ table{
   align-items: center;
   justify-content: space-between;
   font-family: "Open Sans", sans-serif;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
   border-bottom: solid .5px #4C9689;
 }
 
@@ -417,7 +421,6 @@ table{
 }
 
 .single-vote{
-  width: 30%;
 }
 
 .vote-btns{
@@ -439,6 +442,17 @@ table{
 
 .answer-body-text{
   font-family: "Open Sans", sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+
+.answer-body-text p{
+  width: 69%;
+}
+
+.answer-right {
+  width: 30%;
+  margin-top: 15px;
 }
 
 .answer-form-header{
