@@ -23,6 +23,23 @@ export default class QuestionCard extends Component {
     // one vote per Q or A per user? -- break into two fxns?
   }
 
+  displayTags(){
+    if(this.props.arrayOfQuestionObjects.tags.length>0){
+      let tags = this.props.arrayOfQuestionObjects.tags.map((tag, index) =>{
+        return( < li key={index} >{tag}</li> )
+      })
+      return(
+          <div className='question-tags-list'>
+            <ul>
+              {tags}
+            </ul>
+          </div>
+      )
+    }else{
+      return null;
+    }
+  }
+
   render() {
     let mapper = this.props.arrayOfQuestionObjects.map((mapped, index) =>{
       if(index<100){
@@ -57,6 +74,7 @@ export default class QuestionCard extends Component {
                 </tbody>
                 </table>
               </div>
+              {this.displayTags()}
             </div>
           </div>
         );
