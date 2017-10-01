@@ -15,15 +15,15 @@ export default class QuestionCards extends Component {
     this.showProfilePage = this.showProfilePage.bind(this);
 
     this.state ={
-      postQuestion: false,
-      mockData: null
+      // postQuestion: false,
+      questionDataArray: null
     }
   }
 
   handleQuestionSubmitFormRequest(event){
     if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
       this.props.handleQuestionSubmitFormRequest(event.target.id);
-      this.setState({postQuestion: event.target.id});
+      // this.setState({postQuestion: event.target.id});
     }
   }
 
@@ -36,16 +36,15 @@ export default class QuestionCards extends Component {
   }
 
   componentWillMount(){
-    this.fetchSomeShit();
+    this.fetchAllQuestions();
   }
 
-  fetchSomeShit(){
+  fetchAllQuestions(){
     request
-
       .get('https://murmuring-fjord-57185.herokuapp.com/api/questions')
       .end((err, res) => {
         let mockData = res.body.questions;
-        this.setState({mockData: mockData});
+        this.setState({questionDataArray: mockData});
       });
   }
 
@@ -55,7 +54,7 @@ export default class QuestionCards extends Component {
 
           <div className="question-card-wrapper">
               <div>
-                {this.state.postQuestion ?
+                {this.props.postQuestion ?
                   null :
                   (<div className = "question-cards-wrapper-top">
                     <div className = "question-cards-wrapper-top-left">
@@ -69,11 +68,11 @@ export default class QuestionCards extends Component {
                   </div>)
                 }
               </div>
-              {this.state.mockData ?
+              {this.state.questionDataArray ?
                 <QuestionCard
                   sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
                   showProfilePage={this.showProfilePage}
-                  arrayOfQuestionObjects={this.state.mockData}
+                  arrayOfQuestionObjects={this.state.questionDataArray}
                   token={this.props.token}
                 /> :
                 null

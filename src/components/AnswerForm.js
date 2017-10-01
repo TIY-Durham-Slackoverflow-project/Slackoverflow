@@ -7,7 +7,7 @@ export default class AnswerForm extends Component {
     super(props);
 
     this.state = {
-      textarea: null,
+      textarea: "",
       error: null
     }
   }
