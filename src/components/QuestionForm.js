@@ -34,8 +34,9 @@ export default class QuestionForm extends Component {
         console.log(res);
         if(err) {
           this.setState({error: res.body.error});
+        }else{
+          this.navigateBackRequest;
         }
-
       })
   }
 

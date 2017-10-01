@@ -22,9 +22,9 @@ export default class AnswerForm extends Component {
     }
   }
 
-  handleSubmittedAnswerForm(){
-    // call fxn to post to DB
-  }
+  // refreshParent(){
+  //   this.props.refreshParent();
+  // }
 
   postAnAnswer(event){
     event.preventDefault();
@@ -39,6 +39,9 @@ export default class AnswerForm extends Component {
         console.log(res);
         if(err) {
           this.setState({error: res.body.error});
+        }else{
+          this.setState({textarea: ""});
+          this.props.refreshParent();
         }
       });
   }
@@ -53,7 +56,7 @@ export default class AnswerForm extends Component {
         <form id = "answerForm">
           <p><textarea
             onChange={this.updateFromField('textarea')}
-             name = "answerBody" form ="answerForm" className = "answerBody"/></p>
+             name = "answerBody" form ="answerForm" value={this.state.textarea} className = "answerBody"/></p>
           <p><input onClick={event => this.postAnAnswer(event)} type = "submit" value = "submit" className = "answerSubmit"/></p>
         </form>
       </div>

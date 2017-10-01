@@ -18,10 +18,10 @@ export default class QuestionPageApp extends Component {
   }
 
   componentWillMount(){
-    this.fetchSomeShit();
+    this.fetchSingleQuestionWithAnswers();
   }
 
-  fetchSomeShit(){
+  fetchSingleQuestionWithAnswers(){
     let id = this.props.questionID;
     // id = 1;
     request
@@ -36,6 +36,11 @@ export default class QuestionPageApp extends Component {
     this.props.showProfilePage(e);
   }
 
+  refreshParent(){
+    this.fetchSingleQuestionWithAnswers();
+  }
+
+// want to conditional render profilePage from here
   render() {
     return (
       <div className="single-question-container">
@@ -55,6 +60,7 @@ export default class QuestionPageApp extends Component {
             <AnswerForm
               questionID={this.props.questionID}
               token={this.props.token}
+              refreshParent={this.refreshParent.bind(this)}
             />
           </div>)
         }
