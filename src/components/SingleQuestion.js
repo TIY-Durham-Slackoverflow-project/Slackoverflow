@@ -38,10 +38,10 @@ export default class SingleQuestion extends Component{
         <div className = "single-question-body">
           <div className = "single-question-body-left">
             <p>{data.body}</p>
-          <p className = "user-class">
+          <div className = "user-class">
             <img src ={data.user.avatar} alt ="avatar"/>
             <p>Created at: {data.created_at}</p>
-          </p>
+          </div>
         </div>
           <div className = "single-question-body-right">
             <table>

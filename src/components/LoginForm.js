@@ -20,17 +20,20 @@ export default class LoginForm extends Component {
     }
   }
 
+  sendLoginFormRequestUp(goBack){
+    this.props.sendLoginFormRequestUp(goBack);
+  }
+
   register(event){
     event.preventDefault();
-    let user = user.username;
-    let pswrd = user.password;
     request
       .post('https://murmuring-fjord-57185.herokuapp.com/api/users')
-      .send({user: this.state.username, pswrd: this.state.password})
+      .send({user: {username: this.state.username, password: this.state.password}})
       .end((err, res) =>{
         if(err) {
-          console.log(err);
           this.setState({error: res.body.error});
+        }else{
+          this.sendLoginFormRequestUp("register");
         }
       })
   }
@@ -43,12 +46,10 @@ export default class LoginForm extends Component {
       .send({username: this.state.username, password: this.state.password})
       .end((err, res) =>{
         if(err) {
-          console.log(err);
-          console.log(res);
           this.setState({error: res.body.error});
         }else{
-          console.log(res.body.token);
           setToken(res.body.token);
+          this.sendLoginFormRequestUp("login");
         }
       })
   }
@@ -65,7 +66,11 @@ export default class LoginForm extends Component {
                 <h3>Register</h3> :
                 <h3>Login</h3>
               }
-                {this.state.error && <div className="alert">{this.state.error}</div>}
+              {this.state.error &&
+                <div className="alert">
+                  {this.state.error}
+                </div>
+              }
             </div>
             <div className="form-group">
               {/* <label htmlFor="username">Username</label> */}

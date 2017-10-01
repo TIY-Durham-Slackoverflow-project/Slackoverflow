@@ -8,7 +8,7 @@ import request from 'superagent';
 export default class QuestionPageApp extends Component {
   constructor(props){
     super(props);
-
+    this.showProfilePage = this.showProfilePage.bind(this);
     // this.submitAnswerFormUp = this.submitAnswerFormUp.bind(this);
 
     this.state={
@@ -18,10 +18,10 @@ export default class QuestionPageApp extends Component {
   }
 
   componentWillMount(){
-    this.fetchSomeShit();
+    this.fetchSingleQuestionWithAnswers();
   }
 
-  fetchSomeShit(){
+  fetchSingleQuestionWithAnswers(){
     let id = this.props.questionID;
     // id = 1;
     request
@@ -32,7 +32,15 @@ export default class QuestionPageApp extends Component {
       });
   }
 
+  showProfilePage(e){
+    this.props.showProfilePage(e);
+  }
 
+  refreshParent(){
+    this.fetchSingleQuestionWithAnswers();
+  }
+
+// want to conditional render profilePage from here
   render() {
     return (
       <div className="single-question-container">
@@ -47,10 +55,12 @@ export default class QuestionPageApp extends Component {
               answerData={this.state.questionData.answers}
               questionID={this.props.questionID}
               token={this.props.token}
+              showProfilePage={this.showProfilePage}
             />
             <AnswerForm
               questionID={this.props.questionID}
               token={this.props.token}
+              refreshParent={this.refreshParent.bind(this)}
             />
           </div>)
         }
