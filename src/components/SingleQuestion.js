@@ -2,12 +2,6 @@ import React, {Component} from 'react';
 import moment from "moment";
 
 export default class SingleQuestion extends Component{
-  constructor(props){
-    super(props);
-
-    // this.handleVoteChangeRequest = this.handleVoteChangeRequest.bind(this);
-    // this.handleSubmittedAnswerForm = this.handleSubmittedAnswerForm.bind(this);
-  }
 
   submitAnswerFormUp(event){
     if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
@@ -23,13 +17,26 @@ export default class SingleQuestion extends Component{
 
   // post: answerQ, voteA, voteQ
 
+  displayTags(){
+    if(this.props.questionData.tags.length>0){
+      let tags = this.props.questionData.tags.map((tag, index) =>{
+        return( < li key={index} >{tag}</li> )
+      })
+      return(
+          <div className='question-tags-list'>
+            <ul>
+              {tags}
+            </ul>
+          </div>
+      )
+    }else{
+      return null;
+    }
+  }
+
   render(){
     let data = this.props.questionData;
-    let tags = data.tags.map((tag, index) => {
-      return(< li key={index}>{tag}</li>)
-    })
-    let when = moment(data.created_at).fromNow();
-
+    let when = moment(data.created_at).format("MMM DD 'YY h:mm");
     return(
       <div>
         <div className = "question-title-header">
@@ -44,7 +51,7 @@ export default class SingleQuestion extends Component{
             <p>{data.body}</p>
             <div className = "user-class">
               <img src ={data.user.avatar} alt ="avatar"/>
-              <p>Created: {when}</p>
+              <p>Asked: {when}</p>
             </div>
           </div>
           <div className = "single-question-body-right">
@@ -67,6 +74,7 @@ export default class SingleQuestion extends Component{
               <input type = "submit" value = "&#9660; Downvote" className = "downvote-btn vote-btn"/>
             </div>
           </div>
+          {this.displayTags()}
         </div>
       </div>
     )

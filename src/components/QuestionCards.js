@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import QuestionCard from '../components/QuestionCard.js';
-import Header from '../components/Header.js';
-import Footer from '../components/Footer.js';
 import request from 'superagent';
-import superagentJsonapify from 'superagent-jsonapify';
 // import fs from 'react-fs';
 // import '../MOCK_DATA.json';
 
@@ -16,7 +13,8 @@ export default class QuestionCards extends Component {
 
     this.state ={
       // postQuestion: false,
-      questionDataArray: null
+      questionDataArray: null,
+      listLength: 10
     }
   }
 
@@ -48,10 +46,18 @@ export default class QuestionCards extends Component {
       });
   }
 
+  extendListLength(){
+    let length = this.state.listLength + 10;
+    this.setState({listLength: length})
+  }
+
+  filtered(array){
+    return array.filter((elem, index, arr) => arr.indexOf(elem) < this.state.listLength);
+  }
+
     render() {
       return (
         <div>
-
           <div className="question-card-wrapper">
               <div>
                 {this.props.postQuestion ?
@@ -72,11 +78,15 @@ export default class QuestionCards extends Component {
                 <QuestionCard
                   sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
                   showProfilePage={this.showProfilePage}
-                  arrayOfQuestionObjects={this.state.questionDataArray}
+                  arrayOfQuestionObjects={this.filtered(this.state.questionDataArray)}
+                  // arrayOfQuestionObjects={this.state.questionDataArray}
                   token={this.props.token}
                 /> :
                 null
               }
+              <div className="show-more-button">
+                <a onClick={event => this.extendListLength(event)}>Show more</a>
+              </div>
             </div>
         </div>
       );
