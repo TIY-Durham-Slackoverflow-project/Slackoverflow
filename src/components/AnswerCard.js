@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import cookie from 'react-cookies';
 import request from 'superagent';
+import moment from "moment";
 
 export default class AnswerCard extends Component {
   constructor(props){
@@ -39,6 +40,7 @@ export default class AnswerCard extends Component {
 
   render(){
     let data = this.props.answerData.map((answer, index) => {
+    let when = moment(answer.answer_user.created_at).fromNow();
     return(
       < div key={index}>
         <div className = "answer-title-header">
@@ -47,7 +49,13 @@ export default class AnswerCard extends Component {
           </div>
         </div>
         <div className = "answer-body-text">
+          <div className = "answer-left">
           <p>{answer.code}</p>
+          <div className = "user-class">
+            <img onClick={this.showProfilePage} id={answer.answer_user.id} src ={answer.answer_user.avatar} alt ="avatar"/>
+            <p>Answered by {answer.answer_user.username} {when}</p>
+          </div>
+        </div>
           <div className = "answer-right">
           <div className = "answer-table">
           <table>
@@ -70,10 +78,7 @@ export default class AnswerCard extends Component {
       </div>
     </div>
         <div className = "single-question-body-bottom">
-          <div className = "user-class">
-            <img onClick={this.showProfilePage} id={answer.answer_user.id} src ={answer.answer_user.avatar} alt ="avatar"/>
-            <p>Answered by {answer.answer_user.username} on {answer.answer_user.created_at}</p>
-          </div>
+
           <div className = "question-card-content-right">
 
 

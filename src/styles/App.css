@@ -437,7 +437,7 @@ table{
 }
 
 .answer-title-header{
-  padding-top: 45px;
+  padding-top: 10px;
 }
 
 .answer-body-text{
@@ -446,7 +446,8 @@ table{
   justify-content: space-between;
 }
 
-.answer-body-text p{
+
+.answer-left{
   width: 69%;
 }
 
