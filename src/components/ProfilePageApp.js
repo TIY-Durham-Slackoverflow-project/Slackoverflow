@@ -85,7 +85,7 @@ export default class ProfilePageApp extends Component {
           (<div className = "user-wrapper">
             <div className = "user-left">
               <div className = "large-avatar">
-                <img src ={this.state.user.avatar_big}/>
+                <img src ={this.state.user.avatar_big} alt="avatar"/>
               </div>
               <div className = "user-right">
                 <h2>{this.state.user.username}</h2>

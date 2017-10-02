@@ -2,12 +2,6 @@ import React, {Component} from 'react';
 import moment from "moment";
 
 export default class SingleQuestion extends Component{
-  constructor(props){
-    super(props);
-
-    // this.handleVoteChangeRequest = this.handleVoteChangeRequest.bind(this);
-    // this.handleSubmittedAnswerForm = this.handleSubmittedAnswerForm.bind(this);
-  }
 
   submitAnswerFormUp(event){
     if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
@@ -42,7 +36,7 @@ export default class SingleQuestion extends Component{
 
   render(){
     let data = this.props.questionData;
-    let when = moment(data.created_at).format("MMM-DD 'YY h:mm");
+    let when = moment(data.created_at).format("MMM DD 'YY h:mm");
     return(
       <div>
         <div className = "question-title-header">

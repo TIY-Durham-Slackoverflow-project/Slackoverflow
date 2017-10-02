@@ -9,9 +9,13 @@ export default class AnswerCard extends Component {
     this.showProfilePage = this.showProfilePage.bind(this);
 
     this.state = {
+      token: null,
       error: null
-
     }
+  }
+
+  componentWillMount() {
+    this.setState({token: cookie.load('token')}); //get token from cookie, if it exists
   }
 
 
@@ -21,12 +25,11 @@ export default class AnswerCard extends Component {
       request
         .post('https://murmuring-fjord-57185.herokuapp.com/api/answers/votes')
         .send({vote: event.target.id})
-        .set('Authorization', `Token token=${this.props.token}`)
+        .set('Authorization', `Token token=${this.state.token}`)
         .end((err, res) =>{
           if(err) {
             this.setState({error: res.body.error});
           }
-
         })
     }
   }
@@ -52,7 +55,7 @@ export default class AnswerCard extends Component {
             <p>{answer.code}</p>
             <div className = "user-class">
               <img onClick={this.showProfilePage} id={answer.answer_user.id} src ={answer.answer_user.avatar} alt ="avatar"/>
-              <p>Answered by {answer.answer_user.username} {moment(answer.answer_user.created_at).format("MMM-DD 'YY h:mm")}</p>
+              <p>Answered by {answer.answer_user.username} {moment(answer.answer_user.created_at).format("MMM DD 'YY h:mm")}</p>
             </div>
           </div>
           <div className = "answer-right">

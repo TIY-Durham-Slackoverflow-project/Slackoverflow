@@ -55,7 +55,7 @@ export default class QuestionCard extends Component {
                     <img onClick={this.showProfilePage} id={mapped.user.id} src={mapped.user.avatar} alt = "icon"/>
                   </div>
                   <div>
-                    <a>{mapped.user.username} asked {moment(mapped.created_at).format("MMM-DD 'YY h:mm")}</a>
+                    <a>{mapped.user.username} asked {moment(mapped.created_at).format("MMM DD 'YY h:mm")}</a>
                   </div>
                 </div>
               </div>
