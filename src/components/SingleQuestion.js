@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import moment from "moment";
 
 export default class SingleQuestion extends Component{
   constructor(props){
@@ -20,12 +21,15 @@ export default class SingleQuestion extends Component{
     }
   }
 
-// post: answerQ, voteA, voteQ
+  // post: answerQ, voteA, voteQ
 
   render(){
     let data = this.props.questionData;
     let tags = data.tags.map((tag, index) => {
-    return(< li key={index}>{tag}</li>)})
+      return(< li key={index}>{tag}</li>)
+    })
+    let when = moment(data.created_at).fromNow();
+
     return(
       <div>
         <div className = "question-title-header">
@@ -38,25 +42,25 @@ export default class SingleQuestion extends Component{
         <div className = "single-question-body">
           <div className = "single-question-body-left">
             <p>{data.body}</p>
-          <div className = "user-class">
-            <img src ={data.user.avatar} alt ="avatar"/>
-            <p>Created at: {data.created_at}</p>
+            <div className = "user-class">
+              <img src ={data.user.avatar} alt ="avatar"/>
+              <p>Created: {when}</p>
+            </div>
           </div>
-        </div>
           <div className = "single-question-body-right">
             <table>
               <tbody>
-              <tr>
-                <th>Answers</th>
-                <th>Views</th>
-                <th>Votes</th>
-              </tr>
-              <tr>
-                <td>{data.answers_num}</td>
-                <td>{data.views}</td>
-                <td>0</td>
-              </tr>
-            </tbody>
+                <tr>
+                  <th>Answers</th>
+                  <th>Views</th>
+                  <th>Votes</th>
+                </tr>
+                <tr>
+                  <td>{data.answers_num}</td>
+                  <td>{data.views}</td>
+                  <td>0</td>
+                </tr>
+              </tbody>
             </table>
             <div className = 'vote-btns'>
               <input type = "submit" value = "&#9650; Upvote" className = "upvote-btn vote-btn"/>
