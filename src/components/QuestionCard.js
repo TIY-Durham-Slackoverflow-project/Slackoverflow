@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import moment from "moment";
 
 export default class QuestionCard extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ export default class QuestionCard extends Component {
   render() {
     let mapper = this.props.arrayOfQuestionObjects.map((mapped, index) =>{
       if(index<100){
+        let when = moment(mapped.created_at).fromNow();
         return (
           < div key={mapped.id} className="question-card-wrapper">
             <div className = "question-card-content-top">
@@ -37,7 +39,7 @@ export default class QuestionCard extends Component {
                     <img onClick={this.showProfilePage} id={mapped.user.id} src={mapped.user.avatar} alt = "icon"/>
                   </div>
                   <div>
-                    <a>{mapped.user.username} asked on {mapped.created_at}</a>
+                    <a>{mapped.user.username} asked {when}</a>
                   </div>
                 </div>
               </div>
