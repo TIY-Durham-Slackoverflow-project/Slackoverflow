@@ -46,8 +46,13 @@ export default class QuestionCards extends Component {
       });
   }
 
+  extendListLength(){
+    let length = this.state.listLength + 10;
+    this.setState({listLength: length})
+  }
+
   filtered(array){
-    return array.filter((elem, index, arr) => arr.indexOf(elem) < 10);
+    return array.filter((elem, index, arr) => arr.indexOf(elem) < this.state.listLength);
   }
 
     render() {
@@ -74,10 +79,14 @@ export default class QuestionCards extends Component {
                   sendQuestionIdUpToParent={this.sendQuestionIdUpToParent}
                   showProfilePage={this.showProfilePage}
                   arrayOfQuestionObjects={this.filtered(this.state.questionDataArray)}
+                  // arrayOfQuestionObjects={this.state.questionDataArray}
                   token={this.props.token}
                 /> :
                 null
               }
+              <div className="show-more-button">
+                <a onClick={event => this.extendListLength(event)}>Show more</a>
+              </div>
             </div>
         </div>
       );
