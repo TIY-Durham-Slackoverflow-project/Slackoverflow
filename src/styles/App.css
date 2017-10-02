@@ -102,7 +102,6 @@ input:focus, textarea:focus{
   margin-top: 80px;
   background-color: #ffffff;
   width: 250px;
-  height: 200px;
   color:#4D384B;
   border-radius: 0 0 6px 6px;
   border-left: solid 3px #4D384B;
@@ -142,8 +141,8 @@ input:focus, textarea:focus{
 .form-group button:hover{
   background-color: #DF1463;
   color: white;
-  border: none;
   cursor: pointer;
+  border: solid 1px transparent;
 }
 
 /* jumbotron styles */
@@ -235,6 +234,10 @@ input:focus, textarea:focus{
   font-weight: bold;
   color: #DF1463;
   cursor: pointer;
+}
+
+.question-card-content-right{
+  width: 46vh;
 }
 
 
@@ -377,7 +380,7 @@ table{
   align-items: center;
   justify-content: space-between;
   font-family: "Open Sans", sans-serif;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
   border-bottom: solid .5px #4C9689;
 }
 
@@ -418,7 +421,6 @@ table{
 }
 
 .single-vote{
-  width: 30%;
 }
 
 .vote-btns{
@@ -435,11 +437,23 @@ table{
 }
 
 .answer-title-header{
-  padding-top: 45px;
+  padding-top: 10px;
 }
 
 .answer-body-text{
   font-family: "Open Sans", sans-serif;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.answer-left{
+  width: 69%;
+}
+
+.answer-right {
+  width: 30%;
+  margin-top: 15px;
 }
 
 .answer-form-header{
