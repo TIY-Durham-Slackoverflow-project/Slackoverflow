@@ -197,6 +197,15 @@ input:focus, textarea:focus{
   cursor: pointer;
 }
 
+.show-more-button{
+  color: #E19A09;
+}
+
+.show-more-button a:hover{
+  cursor: pointer;
+  color: #C70029;
+}
+
 .ques-content-wrapper p{
   white-space: nowrap;
   overflow: hidden;

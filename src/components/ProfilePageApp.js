@@ -21,8 +21,6 @@ export default class ProfilePageApp extends Component {
     request
       .get(`https://murmuring-fjord-57185.herokuapp.com/api/users/${id}`)
       .end((err, res) => {
-        console.log(err);
-        console.log(res.body.user);
         let userData = res.body.user;
         this.setState({user: userData});
       });
