@@ -42,7 +42,7 @@ export default class SingleQuestion extends Component{
 
   render(){
     let data = this.props.questionData;
-    let when = moment(data.created_at).fromNow();
+    let when = moment(data.created_at).format("MMM-DD 'YY h:mm");
     return(
       <div>
         <div className = "question-title-header">
@@ -57,7 +57,7 @@ export default class SingleQuestion extends Component{
             <p>{data.body}</p>
             <div className = "user-class">
               <img src ={data.user.avatar} alt ="avatar"/>
-              <p>Created: {when}</p>
+              <p>Asked: {when}</p>
             </div>
           </div>
           <div className = "single-question-body-right">
