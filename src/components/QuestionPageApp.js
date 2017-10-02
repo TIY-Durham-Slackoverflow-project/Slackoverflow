@@ -50,6 +50,7 @@ export default class QuestionPageApp extends Component {
               questionData={this.state.questionData}
               questionID={this.props.questionID}
               token={this.props.token}
+              showProfilePage={this.showProfilePage}
             />
             <AnswerCard
               answerData={this.state.questionData.answers}

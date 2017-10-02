@@ -79,7 +79,6 @@ class App extends Component {
   }
 
   showProfilePage(value){
-    console.log(value);
     this.setState({profilePage: value});
   }
 
@@ -105,6 +104,7 @@ class App extends Component {
         {this.state.profilePage ?
           <ProfilePageApp
             profileFor={this.state.profilePage}
+            showProfilePage={this.showProfilePage.bind(this)}
           /> :
           (<div>
             {this.state.postQuestion ?

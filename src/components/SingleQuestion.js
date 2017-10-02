@@ -15,6 +15,11 @@ export default class SingleQuestion extends Component{
     }
   }
 
+  showProfilePage(event){
+    if (event.target.id !== "" && event.target.id !== undefined && event.target.id !== null){
+      this.props.showProfilePage(event.target.id);
+    }
+  }
   // post: answerQ, voteA, voteQ
 
   displayTags(){
@@ -50,7 +55,7 @@ export default class SingleQuestion extends Component{
           <div className = "single-question-body-left">
             <p>{data.body}</p>
             <div className = "user-class">
-              <img src ={data.user.avatar} alt ="avatar"/>
+              <img onClick={event => this.showProfilePage(event)} id={data.user.id} src ={data.user.avatar} alt ="avatar"/>
               <p>Asked: {when}</p>
             </div>
           </div>

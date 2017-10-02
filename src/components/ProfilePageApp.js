@@ -28,11 +28,9 @@ export default class ProfilePageApp extends Component {
       });
   }
 
-  // componentDidUpdate(){
-  //   if(this.state.user.questions){
-  //     this.setState({displayQuestions: true})
-  //   }
-  // }
+  closeProfilePage(){
+    this.props.showProfilePage(false);
+  }
 
   displayQuestions(){
     if(this.state.user.questions.length>0){
@@ -84,7 +82,7 @@ export default class ProfilePageApp extends Component {
         {this.state.user &&
           (<div className = "user-wrapper">
             <div>
-              <button className="">X</button>
+              <button onClick={event => this.closeProfilePage(event)} className="">X</button>
             </div>
             <div className = "user-left">
               <div className = "large-avatar">
