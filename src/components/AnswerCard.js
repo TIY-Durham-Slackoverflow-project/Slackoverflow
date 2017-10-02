@@ -24,7 +24,7 @@ export default class AnswerCard extends Component {
       event.preventDefault();
       request
         .post('https://murmuring-fjord-57185.herokuapp.com/api/answers/votes')
-        .send({vote: event.target.id})
+        .send({vote:{value: event.target.id}})
         .set('Authorization', `Token token=${this.state.token}`)
         .end((err, res) =>{
           if(err) {
