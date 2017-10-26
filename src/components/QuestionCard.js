@@ -43,6 +43,7 @@ export default class QuestionCard extends Component {
 
   render() {
     let mapper = this.props.arrayOfQuestionObjects.map((mapped, index) =>{
+      console.log(mapped);
       if(index<100){
         return (
           < div key={mapped.id} className="question-card-wrapper">
@@ -52,10 +53,10 @@ export default class QuestionCard extends Component {
                 <p>{mapped.body}</p>
                 <div className = "user-div">
                   <div className = "question-card-icon">
-                    <img onClick={this.showProfilePage} id={mapped.user.id} src={mapped.user.avatar} alt = "icon"/>
+                    <img onClick={this.showProfilePage} id={mapped.id} src={mapped.id} alt = "icon"/>
                   </div>
                   <div>
-                    <a>{mapped.user.username} asked {moment(mapped.created_at).format("MMM DD 'YY h:mm")}</a>
+                    <a>{mapped.answers.answer_user} asked {moment(mapped.created_at).format("MMM DD 'YY h:mm")}</a>
                   </div>
                 </div>
               </div>
@@ -70,7 +71,7 @@ export default class QuestionCard extends Component {
                   <tr>
                     <td>{mapped.answers_num}</td>
                     <td>{mapped.views}</td>
-                    <td>{mapped.votes}</td>
+                    <td>0</td>
                   </tr>
                 </tbody>
                 </table>
